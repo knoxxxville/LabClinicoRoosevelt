@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 07-sep-2015 11:55:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="entities.OrinaMicroscopico" table="orina_microscopico" catalog="laboratorio_clinico_roosevelt">
-        <id name="idmicroscopico" type="int">
+        <id name="idmicroscopico" type="java.lang.Integer">
             <column name="idmicroscopico" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <property name="idorina" type="java.lang.Integer">
+        <many-to-one name="orina" class="entities.Orina" fetch="select">
             <column name="idorina" unique="true" />
-        </property>
+        </many-to-one>
         <property name="leucocitarios" type="string">
             <column name="leucocitarios" length="45" />
         </property>
@@ -47,6 +47,5 @@
         <property name="cristales" type="string">
             <column name="cristales" length="45" />
         </property>
-        <one-to-one name="orina" class="entities.Orina"></one-to-one>
     </class>
 </hibernate-mapping>

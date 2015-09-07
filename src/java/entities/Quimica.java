@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Quimica  implements java.io.Serializable {
 
 
-     private int idquimica;
+     private Integer idquimica;
      private Pacientes pacientes;
      private Doctores doctores;
      private Date fecha;
@@ -18,22 +18,17 @@ public class Quimica  implements java.io.Serializable {
     public Quimica() {
     }
 
-	
-    public Quimica(int idquimica) {
-        this.idquimica = idquimica;
-    }
-    public Quimica(int idquimica, Pacientes pacientes, Doctores doctores, Date fecha) {
-       this.idquimica = idquimica;
+    public Quimica(Pacientes pacientes, Doctores doctores, Date fecha) {
        this.pacientes = pacientes;
        this.doctores = doctores;
        this.fecha = fecha;
     }
    
-    public int getIdquimica() {
+    public Integer getIdquimica() {
         return this.idquimica;
     }
     
-    public void setIdquimica(int idquimica) {
+    public void setIdquimica(Integer idquimica) {
         this.idquimica = idquimica;
     }
     public Pacientes getPacientes() {

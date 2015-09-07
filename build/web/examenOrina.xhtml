@@ -26,7 +26,7 @@
 
                         <p:outputLabel value="Paciente" />
                         <p:autoComplete size="40" required="true" placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
-                                        completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
+                                        completeMethod="#{modulosMB.completeTextPaciente}"
 
                                         ></p:autoComplete>
                         <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
@@ -35,7 +35,7 @@
 
                         <p:outputLabel value="Doctor" />
                         <p:autoComplete size="40" required="true" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
-                                        completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
+                                        completeMethod="#{modulosMB.completeTextDoctor}"
 
                                         ></p:autoComplete>
                         <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />

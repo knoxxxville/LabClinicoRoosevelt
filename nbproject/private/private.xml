@@ -3,10 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="UsersApp"/>
-        <group/>
         <group name="LabClinico">
             <file>file:/C:/Users/Lenovo/Dropbox/LabClinicoRoosevelt/v2/LabClinicoRoosevelt/src/java/ManageBeans/ModulosMB.java</file>
             <file>file:/C:/Users/Lenovo/Dropbox/LabClinicoRoosevelt/v2/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
+        </group>
+        <group>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenBactereologia.xhtml</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/menuBarPacientesDoctores.xhtml</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/ModulosMB.java</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenOrina.xhtml</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/OrinaManagedBean.java</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/searchBactereologia.xhtml</file>
         </group>
     </open-files>
 </project-private>

@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Inmunologia  implements java.io.Serializable {
 
 
-     private int idinmunidad;
+     private Integer idinmunidad;
      private Pacientes pacientes;
      private Doctores doctores;
      private Date fecha;
@@ -33,12 +33,7 @@ public class Inmunologia  implements java.io.Serializable {
     public Inmunologia() {
     }
 
-	
-    public Inmunologia(int idinmunidad) {
-        this.idinmunidad = idinmunidad;
-    }
-    public Inmunologia(int idinmunidad, Pacientes pacientes, Doctores doctores, Date fecha, String tificoo, String tificoh, String paratificoa, String paratificob, String proteux19, String brucella, String vdrl, String latexra, String proteinac, String monotest, String antiestreptolisinao, String embarazoorina, String embarazosangre, String vih, String hbs) {
-       this.idinmunidad = idinmunidad;
+    public Inmunologia(Pacientes pacientes, Doctores doctores, Date fecha, String tificoo, String tificoh, String paratificoa, String paratificob, String proteux19, String brucella, String vdrl, String latexra, String proteinac, String monotest, String antiestreptolisinao, String embarazoorina, String embarazosangre, String vih, String hbs) {
        this.pacientes = pacientes;
        this.doctores = doctores;
        this.fecha = fecha;
@@ -59,11 +54,11 @@ public class Inmunologia  implements java.io.Serializable {
        this.hbs = hbs;
     }
    
-    public int getIdinmunidad() {
+    public Integer getIdinmunidad() {
         return this.idinmunidad;
     }
     
-    public void setIdinmunidad(int idinmunidad) {
+    public void setIdinmunidad(Integer idinmunidad) {
         this.idinmunidad = idinmunidad;
     }
     public Pacientes getPacientes() {

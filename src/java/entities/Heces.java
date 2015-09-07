@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Heces  implements java.io.Serializable {
 
 
-     private int idheces;
+     private Integer idheces;
      private Pacientes pacientes;
      private Doctores doctores;
      private String observaciones;
@@ -33,12 +33,7 @@ public class Heces  implements java.io.Serializable {
     public Heces() {
     }
 
-	
-    public Heces(int idheces) {
-        this.idheces = idheces;
-    }
-    public Heces(int idheces, Pacientes pacientes, Doctores doctores, String observaciones, Date fecha, String color, String mucus, String leucocitos, String eritrocitos, String ramacro, String ramicro, String bacterias, String levaduras, String sangreoculta, String trofozoitos, String huevos, String quistes, String larvas, String otros) {
-       this.idheces = idheces;
+    public Heces(Pacientes pacientes, Doctores doctores, String observaciones, Date fecha, String color, String mucus, String leucocitos, String eritrocitos, String ramacro, String ramicro, String bacterias, String levaduras, String sangreoculta, String trofozoitos, String huevos, String quistes, String larvas, String otros) {
        this.pacientes = pacientes;
        this.doctores = doctores;
        this.observaciones = observaciones;
@@ -59,11 +54,11 @@ public class Heces  implements java.io.Serializable {
        this.otros = otros;
     }
    
-    public int getIdheces() {
+    public Integer getIdheces() {
         return this.idheces;
     }
     
-    public void setIdheces(int idheces) {
+    public void setIdheces(Integer idheces) {
         this.idheces = idheces;
     }
     public Pacientes getPacientes() {

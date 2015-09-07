@@ -30,7 +30,7 @@ public class BactereologiaManagedBean {
     private Doctores doctor;
     private String strPaciente;
     private String strDoctor;
-    String[] parametros;
+  
     private List<Bacteriologia> filteredBactereologias = new ArrayList<Bacteriologia>();
     LabHelper helper;
 
@@ -45,34 +45,15 @@ public class BactereologiaManagedBean {
 
     public void save() {
 
-        //Se obtiene el id del paciente
-        parametros = strPaciente.split(":");
-        Pacientes p = new Pacientes();
-        p.setIdpaciente(Integer.parseInt(parametros[0].toString().trim()));
-        bac.setPacientes(p);
-
-        //Se obtiene el id del doctor
-        parametros = strDoctor.split(":");
-        Doctores d = new Doctores();
-        d.setIddoctor(Integer.parseInt(parametros[0].toString().trim()));
-        bac.setDoctores(d);
-
+       
+        bac.setPacientes(helper.getPacienteObject(strPaciente));
+        bac.setDoctores(helper.getDoctorObject(strDoctor));
         helper.saveExamenBactereologia(bac);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "El examen se registro exitosamente !"));
-        bac = new Bacteriologia();
+        
     }
 
-    public List<String> completeTextPaciente(String query) {
-
-        return helper.QueryPacientesByName(query.toUpperCase());
-
-    }
-
-    public List<String> completeTextDoctor(String query) {
-
-        return helper.QueryDoctoresByName(query.toUpperCase());
-
-    }
+    
 
     public String getStrDoctor() {
         return strDoctor;

@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Bacteriologia  implements java.io.Serializable {
 
 
-     private int idbacteriologia;
+     private Integer idbacteriologia;
      private Pacientes pacientes;
      private Doctores doctores;
      private Date fechaentrada;
@@ -25,12 +25,7 @@ public class Bacteriologia  implements java.io.Serializable {
     public Bacteriologia() {
     }
 
-	
-    public Bacteriologia(int idbacteriologia) {
-        this.idbacteriologia = idbacteriologia;
-    }
-    public Bacteriologia(int idbacteriologia, Pacientes pacientes, Doctores doctores, Date fechaentrada, Date fechasalida, String observaciones, String rctobacteriano, String seaisla, String sensiablea, String resistentea, String muestra) {
-       this.idbacteriologia = idbacteriologia;
+    public Bacteriologia(Pacientes pacientes, Doctores doctores, Date fechaentrada, Date fechasalida, String observaciones, String rctobacteriano, String seaisla, String sensiablea, String resistentea, String muestra) {
        this.pacientes = pacientes;
        this.doctores = doctores;
        this.fechaentrada = fechaentrada;
@@ -43,11 +38,11 @@ public class Bacteriologia  implements java.io.Serializable {
        this.muestra = muestra;
     }
    
-    public int getIdbacteriologia() {
+    public Integer getIdbacteriologia() {
         return this.idbacteriologia;
     }
     
-    public void setIdbacteriologia(int idbacteriologia) {
+    public void setIdbacteriologia(Integer idbacteriologia) {
         this.idbacteriologia = idbacteriologia;
     }
     public Pacientes getPacientes() {
@@ -121,7 +116,6 @@ public class Bacteriologia  implements java.io.Serializable {
         this.muestra = muestra;
     }
 
-    
 
 
 

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 07-sep-2015 11:55:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="entities.HematologiaExamenb" table="hematologia_examenb" catalog="laboratorio_clinico_roosevelt">
-        <id name="idhematologiaexamenb" type="int">
+        <id name="idhematologiaexamenb" type="java.lang.Integer">
             <column name="idhematologiaexamenb" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <property name="idhematologia" type="java.lang.Integer">
+        <many-to-one name="hematologia" class="entities.Hematologia" fetch="select">
             <column name="idhematologia" unique="true" />
-        </property>
+        </many-to-one>
         <property name="globblancos" type="string">
             <column name="globblancos" length="45" />
         </property>
@@ -32,6 +32,5 @@
         <property name="basofilos" type="string">
             <column name="basofilos" length="45" />
         </property>
-        <one-to-one name="hematologia" class="entities.Hematologia"></one-to-one>
     </class>
 </hibernate-mapping>

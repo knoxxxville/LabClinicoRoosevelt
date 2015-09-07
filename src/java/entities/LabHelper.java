@@ -132,7 +132,56 @@ public class LabHelper {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("[LOG]Nombre:"+o.getNombre()+" Edad:"+o.getEdad());
+            System.out.println("[LOG]Nombre:" + o.getNombre() + " Edad:" + o.getEdad());
+            session.save(o);
+            tx.commit();
+            System.out.println("[LOG]Records inserted sucessessfully");
+        } catch (HibernateException e) {
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public void saveOrina(Orina o) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+            session.save(o);
+            tx.commit();
+            System.out.println("[LOG]Records inserted sucessessfully");
+        } catch (HibernateException e) {
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+      public void saveOrinaFisicoQuimico(OrinaFisicoQuimico o) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+            session.save(o);
+            tx.commit();
+            System.out.println("[LOG]Records inserted sucessessfully");
+        } catch (HibernateException e) {
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+       public void saveOrinaMicroscopico(OrinaMicroscopico o) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
             session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");
@@ -149,7 +198,7 @@ public class LabHelper {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("[LOG]"+o.getNombre());
+            System.out.println("[LOG]" + o.getNombre());
             session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");
@@ -159,5 +208,25 @@ public class LabHelper {
         } finally {
             session.close();
         }
+    }
+
+    public Pacientes getPacienteObject(String strPaciente) {
+
+        //Se obtiene el id del paciente
+        String[] parametros;
+        parametros = strPaciente.split(":");
+        Pacientes p = new Pacientes();
+        p.setIdpaciente(Integer.parseInt(parametros[0].toString().trim()));
+
+        return p;
+    }
+
+    public Doctores getDoctorObject(String strDoctor) {
+        //Se obtiene el id del doctor
+        String[] parametros;
+        parametros = strDoctor.split(":");
+        Doctores d = new Doctores();
+        d.setIddoctor(Integer.parseInt(parametros[0].toString().trim()));
+        return d;
     }
 }

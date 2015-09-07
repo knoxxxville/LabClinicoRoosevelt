@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
 
 
 
@@ -9,48 +9,41 @@ package entities;
 public class HematologiaExamena  implements java.io.Serializable {
 
 
-     private int idhematologiaexamena;
-     private Integer idhematologia;
+     private Integer idhematologiaexamena;
+     private Hematologia hematologia;
      private String globrojo;
      private String hematrocitos;
      private String hemoglobina;
      private String vcm;
      private String hcm;
      private String bhcm;
-     private Hematologia hematologia;
 
     public HematologiaExamena() {
     }
 
-	
-    public HematologiaExamena(int idhematologiaexamena) {
-        this.idhematologiaexamena = idhematologiaexamena;
-    }
-    public HematologiaExamena(int idhematologiaexamena, Integer idhematologia, String globrojo, String hematrocitos, String hemoglobina, String vcm, String hcm, String bhcm, Hematologia hematologia) {
-       this.idhematologiaexamena = idhematologiaexamena;
-       this.idhematologia = idhematologia;
+    public HematologiaExamena(Hematologia hematologia, String globrojo, String hematrocitos, String hemoglobina, String vcm, String hcm, String bhcm) {
+       this.hematologia = hematologia;
        this.globrojo = globrojo;
        this.hematrocitos = hematrocitos;
        this.hemoglobina = hemoglobina;
        this.vcm = vcm;
        this.hcm = hcm;
        this.bhcm = bhcm;
-       this.hematologia = hematologia;
     }
    
-    public int getIdhematologiaexamena() {
+    public Integer getIdhematologiaexamena() {
         return this.idhematologiaexamena;
     }
     
-    public void setIdhematologiaexamena(int idhematologiaexamena) {
+    public void setIdhematologiaexamena(Integer idhematologiaexamena) {
         this.idhematologiaexamena = idhematologiaexamena;
     }
-    public Integer getIdhematologia() {
-        return this.idhematologia;
+    public Hematologia getHematologia() {
+        return this.hematologia;
     }
     
-    public void setIdhematologia(Integer idhematologia) {
-        this.idhematologia = idhematologia;
+    public void setHematologia(Hematologia hematologia) {
+        this.hematologia = hematologia;
     }
     public String getGlobrojo() {
         return this.globrojo;
@@ -93,13 +86,6 @@ public class HematologiaExamena  implements java.io.Serializable {
     
     public void setBhcm(String bhcm) {
         this.bhcm = bhcm;
-    }
-    public Hematologia getHematologia() {
-        return this.hematologia;
-    }
-    
-    public void setHematologia(Hematologia hematologia) {
-        this.hematologia = hematologia;
     }
 
 
