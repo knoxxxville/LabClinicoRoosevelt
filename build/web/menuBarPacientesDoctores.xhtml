@@ -5,39 +5,38 @@
                 xmlns:p="http://primefaces.org/ui">
 
 
-    <h:form>
-        
-   
-
-    <h:panelGrid columns="2" style="border:0px none">
-        <p:commandButton value="Paciente" type="button" onclick="PF('dlg1').show();" icon="ui-icon-contact fa fa-plus"  />
-        <p:commandButton value="Doctor" type="button" onclick="PF('dlg2').show();" icon="ui-icon-contact fa fa-plus"  />
-
-    </h:panelGrid>
+    <h:form id="modulopacientesdoctores">
 
 
-    <p:dialog header="Nuevo Paciente" widgetVar="dlg1" modal="true" height="150">
-        <h:panelGrid columns="2" cellpadding="5">
-            <p:outputLabel value="Nombre" />
-            <p:inputText placeholder="" value="#{modulosMB.nombrePaciente}"  styleClass="Wid90" />
-            <p:outputLabel value="Edad" />
-            <p:inputText placeholder="" value="#{modulosMB.edadPaciente}"  styleClass="Wid90" />
-            <p:commandButton actionListener="#{modulosMB.savePaciente()}" style="margin-top: 10px;" value="Nuevo"  icon="ui-icon-check fa fa-check white Fs14"/>
-            <p:button onclick="#{modulosMB.savePaciente()}" value="ok" />
-        </h:panelGrid>
 
-    </p:dialog>   
 
-    <p:dialog header="Nuevo Doctor" widgetVar="dlg2" modal="true" height="100">
-        <h:panelGrid columns="2" cellpadding="5">
-            <p:outputLabel value="Nombre" />
-            <p:inputText placeholder="" value="#{modulosMB.nombreDoctor}"  styleClass="Wid90" />
-            <p:commandButton actionListener="#{modulosMB.saveDoctores()}" style="margin-top: 10px;" value="Nuevo"  icon="ui-icon-check fa fa-check white Fs14"/>
 
-        </h:panelGrid>
-    </p:dialog>   
+        <p:dialog header="Registrar Nuevo Paciente" widgetVar="dlg1" modal="true" height="160">
 
- </h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Nombre" />
+                <p:inputText placeholder="" value="#{modulosMB.nombrePaciente}"  styleClass="Wid90" />
+                <p:outputLabel value="Edad" />
+                <p:inputText placeholder="" value="#{modulosMB.edadPaciente}"  styleClass="Wid90" />
+
+                <p:commandButton oncomplete="PF('dlg1').hide();" actionListener="#{modulosMB.savePaciente()}"   value="Aceptar"  />
+
+
+            </h:panelGrid>
+
+        </p:dialog>   
+
+        <p:dialog header="Registrar Nuevo Doctor" widgetVar="dlg2" modal="true" height="100">
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Nombre" />
+                <p:inputText placeholder="" value="#{modulosMB.nombreDoctor}"  styleClass="Wid90" />
+                <p:commandButton oncomplete="PF('dlg2').hide();" actionListener="#{modulosMB.saveDoctores()}"   value="Aceptar"  />
+
+
+            </h:panelGrid>
+        </p:dialog>   
+
+    </h:form>
 
 
 

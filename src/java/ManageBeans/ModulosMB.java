@@ -9,8 +9,10 @@ package ManageBeans;
 import entities.Doctores;
 import entities.LabHelper;
 import entities.Pacientes;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -35,6 +37,7 @@ public class ModulosMB {
     public ModulosMB() {
         
         helper = new LabHelper();
+       
     }
     
     public void saveDoctores() {
@@ -47,9 +50,10 @@ public class ModulosMB {
     public void savePaciente() {
         p = new Pacientes();
         
-        p.setNombre(nombreDoctor);
+        p.setNombre(nombrePaciente);
         p.setEdad(edadPaciente);
         helper.savePacientes(p);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Operacion exitosa!"));
     }
     
     public Pacientes getP() {

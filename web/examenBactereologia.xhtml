@@ -9,39 +9,40 @@
         <div class="layout-portlets-box">
 
 
+
+
+            <div class="Container100 Responsive100">
+                <div class="ContainerIndent">
+                    <h1 class="BigTopic">Registro Examen Bacteriologia</h1>
+
+                    <ui:include src="menuBarPacientesDoctores.xhtml" />
+                </div>
+            </div>
             <h:form>
+                <div class="BigTopic Container100 Responsive100">
+                    <p:messages showDetail="true"  closable="true" />
+                    <h:panelGrid columns="5" cellpadding="5">
 
-                <div class="Container100 Responsive100">
-                    <div class="ContainerIndent">
-                        <h1 class="BigTopic">Registro Examen Bacteriologia</h1>
-                        <p:messages showDetail="true" autoUpdate="true" closable="true" />
-                        <ui:include src="menuBarPacientesDoctores.xhtml" />
-                        <h:panelGrid columns="4" cellpadding="5">
+                        <p:outputLabel value="Paciente" />
+                        <p:autoComplete size="40"  placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
+                                         completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
 
-                            <p:outputLabel value="Paciente" />
-                            <p:autoComplete required="true" placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
-                                            completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
+                                         ></p:autoComplete>
+                         <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                        <p:outputLabel value="Fecha Entrada" />
+                        <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
 
-                                            ></p:autoComplete>
-                            <p:outputLabel value="Fecha Entrada" />
-                            <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
+                        <p:outputLabel value="Doctor" />
+                        <p:autoComplete size="40" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
+                                        completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
 
-                            <p:outputLabel value="Doctor" />
-                            <p:autoComplete required="true" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
-                                             completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
+                                        ></p:autoComplete>
+                         <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
 
-                                             ></p:autoComplete>
+                        <p:outputLabel value="Fecha Salida" />
+                        <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechasalida}" id="popupw2" />
 
-
-                            <p:outputLabel value="Fecha Salida" />
-                            <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechasalida}" id="popupw2" />
-
-                        </h:panelGrid>
-
-
-
-
-                    </div>
+                    </h:panelGrid>
                 </div>
                 <div class="Container50 Responsive50">
                     <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >

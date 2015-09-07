@@ -1,11 +1,137 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="template/template.xhtml">
-	
-	<ui:define name="contenido">
-		EXAMEN AQUI 
-	</ui:define>
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+
+            <div class="Container100 Responsive100">
+                <div class="ContainerIndent">
+                    <h1 class="BigTopic">Registro Examen Orina</h1>
+
+                    <ui:include src="menuBarPacientesDoctores.xhtml" />
+                </div>
+            </div>
+            <h:form>
+
+                <div class="BigTopic Container100 Responsive100">
+
+
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" />
+                    
+                    <h:panelGrid columns="5" cellpadding="5">
+
+                        <p:outputLabel value="Paciente" />
+                        <p:autoComplete size="40" required="true" placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
+                                        completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
+
+                                        ></p:autoComplete>
+                        <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                        <p:outputLabel value="Fecha Entrada" />
+                        <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
+
+                        <p:outputLabel value="Doctor" />
+                        <p:autoComplete size="40" required="true" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
+                                        completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
+
+                                        ></p:autoComplete>
+                        <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+
+
+                    </h:panelGrid>
+
+                </div>
+               
+                <div class=" MarTop20 Container50 Responsive50">
+                    <h3 class="FontBold">Examen Fisico Quimico</h3>
+                    <p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                        <p:outputLabel value="Color"  />
+                        <p:inputText placeholder="Color" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Aspecto" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Densidad" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="PH" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Nitritos" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Proteinas" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Glucos" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Bilirrubina" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Cetonas" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Sangre" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+                        <p:outputLabel value="Urobilinogeno" />
+                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+
+
+                    </p:panelGrid>
+                </div>
+                <div class=" MarTop20 Container50 Responsive50">
+                    <h3 class="FontBold ">Examen Microscopico</h3>
+                    <p:panelGrid columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+
+                        <p:inputText title="Cil. Leucocitarios" placeholder="Cil. Leucocitarios" value="" styleClass="Wid90"  />
+
+
+                        <p:inputText title="Hematicos" placeholder="Hematicos" value="" styleClass="Wid90"  />
+
+
+                        <p:inputText title="Granulosos" placeholder="Granulosos" value="" styleClass="Wid90"  />
+
+
+                        <p:inputText title="Cereos" placeholder="Cereos" value="" styleClass="Wid90"  />
+
+                        <p:inputText title="Epiteliales" placeholder="Epiteliales" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Hialinos" placeholder="Hialinos" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Leucocitos" placeholder="Leucocitos" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Hematies" placeholder="Hematies" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Cel Epiteliales" placeholder="Cel Epiteliales" value=""  styleClass="Wid90"  />
+
+                        <p:inputText title="Bacterias" placeholder="Bacterias" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Fil. Mucoides" placeholder="Fil. Mucoides" value=""  styleClass="Wid90"  />
+
+
+                        <p:inputText title="Cristales" placeholder="Cristales" value=""  styleClass="Wid90"  />
+
+                    </p:panelGrid>
+                </div>
+                <div class="Container50 Responsive50">
+                    <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
+
+                        <p:inputTextarea value="" rows="5" placeholder="Observaciones" styleClass="Wid100"/>
+                    </p:panelGrid>
+                </div>
+                <div class="Container50 Responsive50"></div>
+            </h:form>
+        </div>
+    </ui:define>
 </ui:composition>
