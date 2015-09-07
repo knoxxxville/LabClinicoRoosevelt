@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.Inmunologia" table="inmunologia" catalog="laboratorio_clinico_roosevelt">
+        <id name="idinmunidad" type="int">
+            <column name="idinmunidad" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pacientes" class="entities.Pacientes" fetch="select">
+            <column name="idpaciente" />
+        </many-to-one>
+        <many-to-one name="doctores" class="entities.Doctores" fetch="select">
+            <column name="iddoctor" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+        <property name="tificoo" type="string">
+            <column name="tificoo" length="45" />
+        </property>
+        <property name="tificoh" type="string">
+            <column name="tificoh" length="45" />
+        </property>
+        <property name="paratificoa" type="string">
+            <column name="paratificoa" length="45" />
+        </property>
+        <property name="paratificob" type="string">
+            <column name="paratificob" length="45" />
+        </property>
+        <property name="proteux19" type="string">
+            <column name="proteux19" length="45" />
+        </property>
+        <property name="brucella" type="string">
+            <column name="brucella" length="45" />
+        </property>
+        <property name="vdrl" type="string">
+            <column name="vdrl" length="45" />
+        </property>
+        <property name="latexra" type="string">
+            <column name="latexra" length="45" />
+        </property>
+        <property name="proteinac" type="string">
+            <column name="proteinac" length="45" />
+        </property>
+        <property name="monotest" type="string">
+            <column name="monotest" length="45" />
+        </property>
+        <property name="antiestreptolisinao" type="string">
+            <column name="antiestreptolisinao" length="45" />
+        </property>
+        <property name="embarazoorina" type="string">
+            <column name="embarazoorina" length="45" />
+        </property>
+        <property name="embarazosangre" type="string">
+            <column name="embarazosangre" length="45" />
+        </property>
+        <property name="vih" type="string">
+            <column name="vih" length="45" />
+        </property>
+        <property name="hbs" type="string">
+            <column name="hbs" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

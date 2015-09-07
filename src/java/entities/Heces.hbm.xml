@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.Heces" table="heces" catalog="laboratorio_clinico_roosevelt">
+        <id name="idheces" type="int">
+            <column name="idheces" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pacientes" class="entities.Pacientes" fetch="select">
+            <column name="idpaciente" />
+        </many-to-one>
+        <many-to-one name="doctores" class="entities.Doctores" fetch="select">
+            <column name="iddoctor" />
+        </many-to-one>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="45" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" length="45" />
+        </property>
+        <property name="mucus" type="string">
+            <column name="mucus" length="45" />
+        </property>
+        <property name="leucocitos" type="string">
+            <column name="leucocitos" length="45" />
+        </property>
+        <property name="eritrocitos" type="string">
+            <column name="eritrocitos" length="45" />
+        </property>
+        <property name="ramacro" type="string">
+            <column name="ramacro" length="45" />
+        </property>
+        <property name="ramicro" type="string">
+            <column name="ramicro" length="45" />
+        </property>
+        <property name="bacterias" type="string">
+            <column name="bacterias" length="45" />
+        </property>
+        <property name="levaduras" type="string">
+            <column name="levaduras" length="45" />
+        </property>
+        <property name="sangreoculta" type="string">
+            <column name="sangreoculta" length="45" />
+        </property>
+        <property name="trofozoitos" type="string">
+            <column name="trofozoitos" length="45" />
+        </property>
+        <property name="huevos" type="string">
+            <column name="huevos" length="45" />
+        </property>
+        <property name="quistes" type="string">
+            <column name="quistes" length="45" />
+        </property>
+        <property name="larvas" type="string">
+            <column name="larvas" length="45" />
+        </property>
+        <property name="otros" type="string">
+            <column name="otros" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

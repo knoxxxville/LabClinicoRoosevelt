@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.OrinaFisicoQuimico" table="orina_fisicoQuimico" catalog="laboratorio_clinico_roosevelt">
+        <id name="idfisicoquimico" type="int">
+            <column name="idfisicoquimico" />
+            <generator class="assigned" />
+        </id>
+        <property name="idorina" type="java.lang.Integer">
+            <column name="idorina" unique="true" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" length="45" />
+        </property>
+        <property name="aspecto" type="string">
+            <column name="aspecto" length="45" />
+        </property>
+        <property name="densidad" type="string">
+            <column name="densidad" length="45" />
+        </property>
+        <property name="ph" type="string">
+            <column name="ph" length="45" />
+        </property>
+        <property name="nitritos" type="string">
+            <column name="nitritos" length="45" />
+        </property>
+        <property name="proteinas" type="string">
+            <column name="proteinas" length="45" />
+        </property>
+        <property name="glucos" type="string">
+            <column name="glucos" length="45" />
+        </property>
+        <property name="bilirrubina" type="string">
+            <column name="bilirrubina" length="45" />
+        </property>
+        <property name="cetonas" type="string">
+            <column name="cetonas" length="45" />
+        </property>
+        <property name="sangre" type="string">
+            <column name="sangre" length="45" />
+        </property>
+        <property name="urobilinogeno" type="string">
+            <column name="urobilinogeno" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

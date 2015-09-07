@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+
+
+                <h:form id="form">
+    </h:form>
+
+    <p:dataTable value="#{bactereologiaManagedBean.getBactereologias()}" var="bac" rows="10"
+                 >
+
+        <p:column  headerText="Codigo">
+            <h:outputText value="#{bac.codigo}" />
+        </p:column>
+
+        <p:column  headerText="Paciente"   >
+            <h:outputText value="#{bac.paciente}" />
+        </p:column>
+
+        <p:column  headerText="Doctor">
+            <h:outputText value="#{bac.doctor}" />
+        </p:column>
+
+        <p:column  headerText="Edad">
+            <h:outputText value="#{bac.edad}" />
+        </p:column>
+    </p:dataTable>
+
+
+
+
+</ui:composition>

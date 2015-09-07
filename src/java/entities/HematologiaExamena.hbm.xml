@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.HematologiaExamena" table="hematologia_examena" catalog="laboratorio_clinico_roosevelt">
+        <id name="idhematologiaexamena" type="int">
+            <column name="idhematologiaexamena" />
+            <generator class="assigned" />
+        </id>
+        <property name="idhematologia" type="java.lang.Integer">
+            <column name="idhematologia" unique="true" />
+        </property>
+        <property name="globrojo" type="string">
+            <column name="globrojo" length="45" />
+        </property>
+        <property name="hematrocitos" type="string">
+            <column name="hematrocitos" length="45" />
+        </property>
+        <property name="hemoglobina" type="string">
+            <column name="hemoglobina" length="45" />
+        </property>
+        <property name="vcm" type="string">
+            <column name="vcm" length="45" />
+        </property>
+        <property name="hcm" type="string">
+            <column name="hcm" length="45" />
+        </property>
+        <property name="bhcm" type="string">
+            <column name="bhcm" length="45" />
+        </property>
+        <one-to-one name="hematologia" class="entities.Hematologia"></one-to-one>
+    </class>
+</hibernate-mapping>

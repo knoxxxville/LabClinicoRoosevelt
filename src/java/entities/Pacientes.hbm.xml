@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.Pacientes" table="pacientes" catalog="laboratorio_clinico_roosevelt">
+        <id name="idpaciente" type="int">
+            <column name="idpaciente" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="edad" type="string">
+            <column name="edad" length="45" />
+        </property>
+        <set name="bacteriologias" table="bacteriologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Bacteriologia" />
+        </set>
+        <set name="quimicas" table="quimica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Quimica" />
+        </set>
+        <set name="heceses" table="heces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Heces" />
+        </set>
+        <set name="orinas" table="orina" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Orina" />
+        </set>
+        <set name="hematologias" table="hematologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Hematologia" />
+        </set>
+        <set name="inmunologias" table="inmunologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpaciente" />
+            </key>
+            <one-to-many class="entities.Inmunologia" />
+        </set>
+    </class>
+</hibernate-mapping>

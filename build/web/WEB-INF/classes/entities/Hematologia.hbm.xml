@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.Hematologia" table="hematologia" catalog="laboratorio_clinico_roosevelt">
+        <id name="idhematologia" type="int">
+            <column name="idhematologia" />
+            <generator class="foreign">
+                <param name="property">hematologiaExamena</param>
+            </generator>
+        </id>
+        <one-to-one name="hematologiaExamena" class="entities.HematologiaExamena" constrained="true"></one-to-one>
+        <one-to-one name="hematologiaExamenb" class="entities.HematologiaExamenb" constrained="true"></one-to-one>
+        <many-to-one name="pacientes" class="entities.Pacientes" fetch="select">
+            <column name="idpaciente" />
+        </many-to-one>
+        <many-to-one name="doctores" class="entities.Doctores" fetch="select">
+            <column name="iddoctor" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+        <property name="celulasle" type="string">
+            <column name="celulasle" length="45" />
+        </property>
+        <property name="gotagruesa" type="string">
+            <column name="gotagruesa" length="45" />
+        </property>
+        <property name="plaquetas" type="string">
+            <column name="plaquetas" length="45" />
+        </property>
+        <property name="reticulocitos" type="string">
+            <column name="reticulocitos" length="45" />
+        </property>
+        <property name="eritrosedimentacion" type="string">
+            <column name="eritrosedimentacion" length="45" />
+        </property>
+        <property name="fsangreperiferica" type="string">
+            <column name="fsangreperiferica" length="45" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="80" />
+        </property>
+    </class>
+</hibernate-mapping>

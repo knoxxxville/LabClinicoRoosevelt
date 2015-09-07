@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.Bacteriologia" table="bacteriologia" catalog="laboratorio_clinico_roosevelt">
+        <id name="idbacteriologia" type="int">
+            <column name="idbacteriologia" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pacientes" class="entities.Pacientes" fetch="select">
+            <column name="idpaciente" />
+        </many-to-one>
+        <many-to-one name="doctores" class="entities.Doctores" fetch="select">
+            <column name="iddoctor" />
+        </many-to-one>
+        <property name="fechaentrada" type="timestamp">
+            <column name="fechaentrada" length="19" />
+        </property>
+        <property name="fechasalida" type="timestamp">
+            <column name="fechasalida" length="19" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="80" />
+        </property>
+        <property name="rctobacteriano" type="string">
+            <column name="rctobacteriano" length="80" />
+        </property>
+        <property name="seaisla" type="string">
+            <column name="seaisla" length="80" />
+        </property>
+        <property name="sensiablea" type="string">
+            <column name="sensiablea" length="80" />
+        </property>
+        <property name="resistentea" type="string">
+            <column name="resistentea" length="80" />
+        </property>
+        <property name="muestra" type="string">
+            <column name="muestra" length="80" />
+        </property>
+    </class>
+</hibernate-mapping>

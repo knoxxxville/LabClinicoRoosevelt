@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+
+
+            <h:form>
+
+                <div class="Container100 Responsive100">
+                    <div class="ContainerIndent">
+                        <h1 class="BigTopic">Registro Examen Bacteriologia</h1>
+                        <p:messages showDetail="true" autoUpdate="true" closable="true" />
+                        <ui:include src="menuBarPacientesDoctores.xhtml" />
+                        <h:panelGrid columns="4" cellpadding="5">
+
+                            <p:outputLabel value="Paciente" />
+                            <p:autoComplete required="true" placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
+                                            completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
+
+                                            ></p:autoComplete>
+                            <p:outputLabel value="Fecha Entrada" />
+                            <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
+
+                            <p:outputLabel value="Doctor" />
+                            <p:autoComplete required="true" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
+                                             completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
+
+                                             ></p:autoComplete>
+
+
+                            <p:outputLabel value="Fecha Salida" />
+                            <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechasalida}" id="popupw2" />
+
+                        </h:panelGrid>
+
+
+
+
+                    </div>
+                </div>
+                <div class="Container50 Responsive50">
+                    <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
+
+                        <p:outputLabel value="Muestra" />
+                        <p:inputText placeholder="" value="#{bactereologiaManagedBean.bac.muestra}" id="muestratxt" styleClass="Wid90"  />
+
+
+                        <p:outputLabel value="Recuento Bacteriano" />
+                        <p:inputText placeholder="" value="#{bactereologiaManagedBean.bac.rctobacteriano}" id="rctobacterianotxt" styleClass="Wid90" />
+
+
+                        <p:outputLabel value="Se aisla" />
+                        <p:inputText placeholder="" value="#{bactereologiaManagedBean.bac.seaisla}" styleClass="Wid90" id="seaislatxt"/>
+
+                        <p:outputLabel value="Sensible a" />
+                        <p:inputText placeholder="" value="#{bactereologiaManagedBean.bac.sensiablea}" styleClass="Wid90" id="sensibleatxt" />
+
+
+                        <p:outputLabel value="Resistente a" />
+                        <p:inputText placeholder="" value="#{bactereologiaManagedBean.bac.resistentea}" styleClass="Wid90" id="resistenteatxt" />
+
+
+
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bactereologiaManagedBean.save()}" style="margin-top: 10px;" value="Registrar"  icon="ui-icon-check fa fa-check white Fs14"/>
+                    <p:commandButton actionListener="#{bactereologiaManagedBean.save()}" style="margin-top: 10px;" value="Registrar / Imprimir"  icon="ui-icon-check fa fa-check white Fs14"/>
+
+                </div>
+                <div class="Container50 Responsive50">
+                    <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
+                        <p:outputLabel value="Observaciones" />
+                        <p:inputTextarea value="#{bactereologiaManagedBean.bac.observaciones}" rows="5" placeholder="" styleClass="Wid90"/>
+                    </p:panelGrid>
+
+                </div>
+
+
+            </h:form>
+        </div>
+
+
+
+
+
+    </ui:define>
+
+
+
+</ui:composition>

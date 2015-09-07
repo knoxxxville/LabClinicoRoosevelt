@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="entities.OrinaMicroscopico" table="orina_microscopico" catalog="laboratorio_clinico_roosevelt">
+        <id name="idmicroscopico" type="int">
+            <column name="idmicroscopico" />
+            <generator class="assigned" />
+        </id>
+        <property name="idorina" type="java.lang.Integer">
+            <column name="idorina" unique="true" />
+        </property>
+        <property name="leucocitarios" type="string">
+            <column name="leucocitarios" length="45" />
+        </property>
+        <property name="hematicos" type="string">
+            <column name="hematicos" length="45" />
+        </property>
+        <property name="granulosos" type="string">
+            <column name="granulosos" length="45" />
+        </property>
+        <property name="cereos" type="string">
+            <column name="cereos" length="45" />
+        </property>
+        <property name="epiteliales" type="string">
+            <column name="epiteliales" length="45" />
+        </property>
+        <property name="hialinos" type="string">
+            <column name="hialinos" length="45" />
+        </property>
+        <property name="leucocitos" type="string">
+            <column name="leucocitos" length="45" />
+        </property>
+        <property name="hematies" type="string">
+            <column name="hematies" length="45" />
+        </property>
+        <property name="celepiteliales" type="string">
+            <column name="celepiteliales" length="45" />
+        </property>
+        <property name="bacterias" type="string">
+            <column name="bacterias" length="45" />
+        </property>
+        <property name="mucoides" type="string">
+            <column name="mucoides" length="45" />
+        </property>
+        <property name="cristales" type="string">
+            <column name="cristales" length="45" />
+        </property>
+        <one-to-one name="orina" class="entities.Orina"></one-to-one>
+    </class>
+</hibernate-mapping>
