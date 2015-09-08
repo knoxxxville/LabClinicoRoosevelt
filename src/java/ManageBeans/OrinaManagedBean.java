@@ -5,13 +5,11 @@
  */
 package ManageBeans;
 
-import entities.Doctores;
 import entities.LabHelper;
 import entities.Orina;
 import entities.OrinaFisicoQuimico;
 import entities.OrinaMicroscopico;
-import entities.Pacientes;
-import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -25,42 +23,75 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class OrinaManagedBean {
 
-    private Pacientes paciente;
-    private Doctores doctor;
     private String strPaciente;
     private String strDoctor;
-    String[] parametros;
+    private String message;
     LabHelper helper;
-    Orina orina;
-    OrinaFisicoQuimico orinaFisicoQuimica;
-    OrinaMicroscopico orinaMicroscopico;
+    private Orina orina;
+    private OrinaFisicoQuimico orinaFisicoQuimica;
+    private OrinaMicroscopico orinaMicroscopico;
 
     public OrinaManagedBean() {
         orina = new Orina();
-        paciente = new Pacientes();
-
+        orinaFisicoQuimica = new OrinaFisicoQuimico();
+        orinaMicroscopico = new OrinaMicroscopico();
         helper = new LabHelper();
 
     }
 
     public void saveExamen() {
-        orina.setPacientes(helper.getPacienteObject(strPaciente));
-        orina.setDoctores(helper.getDoctorObject(strDoctor));
-        helper.saveOrina(orina);
-        
+
        
-        
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "El examen se registro exitosamente !"));
+            orina.setPacientes(helper.getPacienteObject(strPaciente));
+            orina.setDoctores(helper.getDoctorObject(strDoctor));
+            helper.saveOrina(orina);
 
+            orinaFisicoQuimica.setOrina(orina);
+            helper.saveOrinaFisicoQuimico(orinaFisicoQuimica);
+
+            orinaMicroscopico.setOrina(orina);
+            helper.saveOrinaMicroscopico(orinaMicroscopico);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("El examen se registro exitosamente !"));
+
+           this.limpiarFormulario();
         
+
     }
 
-    public Doctores getDoctor() {
-        return doctor;
-    }
+   
 
-    public void setDoctor(Doctores doctor) {
-        this.doctor = doctor;
+    public void limpiarFormulario() {
+
+        String limpiar = null;
+        strDoctor = limpiar;
+        strPaciente = limpiar;
+        orina.setFecha(null);
+        orina.setObservaciones(limpiar);
+        orinaFisicoQuimica.setAspecto(limpiar);
+        orinaFisicoQuimica.setBilirrubina(limpiar);
+        orinaFisicoQuimica.setCetonas(limpiar);
+        orinaFisicoQuimica.setColor(limpiar);
+        orinaFisicoQuimica.setDensidad(limpiar);
+        orinaFisicoQuimica.setGlucos(limpiar);
+        orinaFisicoQuimica.setNitritos(limpiar);
+        orinaFisicoQuimica.setPh(limpiar);
+        orinaFisicoQuimica.setProteinas(limpiar);
+        orinaFisicoQuimica.setSangre(limpiar);
+        orinaFisicoQuimica.setUrobilinogeno(limpiar);
+        orinaMicroscopico.setBacterias(limpiar);
+        orinaMicroscopico.setCelepiteliales(limpiar);
+        orinaMicroscopico.setCereos(limpiar);
+        orinaMicroscopico.setCristales(limpiar);
+        orinaMicroscopico.setEpiteliales(limpiar);
+        orinaMicroscopico.setGranulosos(limpiar);
+        orinaMicroscopico.setHematicos(limpiar);
+        orinaMicroscopico.setHematies(limpiar);
+        orinaMicroscopico.setHialinos(limpiar);
+        orinaMicroscopico.setLeucocitarios(limpiar);
+        orinaMicroscopico.setLeucocitos(limpiar);
+        orinaMicroscopico.setMucoides(limpiar);
+
     }
 
     public String getStrPaciente() {
@@ -102,7 +133,5 @@ public class OrinaManagedBean {
     public void setOrinaMicroscopico(OrinaMicroscopico orinaMicroscopico) {
         this.orinaMicroscopico = orinaMicroscopico;
     }
-    
-    
 
 }

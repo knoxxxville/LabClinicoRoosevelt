@@ -18,7 +18,7 @@
                     <ui:include src="menuBarPacientesDoctores.xhtml" />
                 </div>
             </div>
-            <h:form>
+            <h:form id="formbac">
                 <div class="BigTopic Container100 Responsive100">
                     <p:messages showDetail="true"  closable="true" />
                     <h:panelGrid columns="5" cellpadding="5">
@@ -27,8 +27,8 @@
                         <p:autoComplete size="40"  placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
                                         completeMethod="#{modulosMB.completeTextPaciente}"
 
-                                         ></p:autoComplete>
-                         <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                                        ></p:autoComplete>
+                        <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
                         <p:outputLabel value="Fecha Entrada" />
                         <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
 
@@ -37,7 +37,7 @@
                                         completeMethod="#{modulosMB.completeTextDoctor}"
 
                                         ></p:autoComplete>
-                         <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+                        <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
 
                         <p:outputLabel value="Fecha Salida" />
                         <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechasalida}" id="popupw2" />
@@ -68,10 +68,9 @@
 
 
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{bactereologiaManagedBean.save()}" style="margin-top: 10px;" value="Registrar"  icon="ui-icon-check fa fa-check white Fs14"/>
-                    <p:commandButton actionListener="#{bactereologiaManagedBean.save()}" style="margin-top: 10px;" value="Registrar / Imprimir"  icon="ui-icon-check fa fa-check white Fs14"/>
 
                 </div>
+
                 <div class="Container50 Responsive50">
                     <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
                         <p:outputLabel value="Observaciones" />
@@ -80,7 +79,20 @@
 
                 </div>
 
+                <div class="MarTop20 Container100 Responsive100">
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton update="formbac" icon="ui-icon-check fa fa-check white Fs14" value="Registrar"  actionListener="#{bactereologiaManagedBean.save()}" style="margin-right:5px;" />
 
+                        </f:facet>
+                        <f:facet name="left">
+                            <p:commandButton update="formbac" icon="ui-icon-check fa fa-check white Fs14" value="Registrar / Imprimir"  actionListener="#{bactereologiaManagedBean.save()}" style="margin-right:5px;" />
+
+                        </f:facet>
+
+                    </p:toolbar>
+
+                </div>
             </h:form>
         </div>
 

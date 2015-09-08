@@ -1,11 +1,102 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="template/template.xhtml">
-	
-	<ui:define name="contenido">
-		EXAMEN AQUI 
-	</ui:define>
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+
+            <div class="Container100  Responsive100">
+                <div class="ContainerIndent">
+                    <h1 class="BigTopic">Registro Examen Heces</h1>
+
+                    <ui:include src="menuBarPacientesDoctores.xhtml" />
+                </div>
+            </div>
+            <h:form  id="formheces">
+                <div class="BigTopic Container100 Responsive100">
+
+
+                    <p:messages closable="true" />
+
+                    <h:panelGrid id="paneluno" columns="5" cellpadding="5">
+
+                        <p:outputLabel value="Paciente" />
+                        <p:autoComplete size="40" required="true" placeholder="" value="#{hechesManagedBean.strPaciente}"
+                                        completeMethod="#{modulosMB.completeTextPaciente}"
+
+                                        ></p:autoComplete>
+                        <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                        <p:outputLabel value="Fecha Entrada" />
+                        <p:calendar placeholder="" value="#{hechesManagedBean.heces.fecha}" id="popupw" />
+
+                        <p:outputLabel value="Doctor" />
+                        <p:autoComplete size="40" required="true" placeholder=""  value="#{hechesManagedBean.strDoctor}"
+                                        completeMethod="#{modulosMB.completeTextDoctor}"
+
+                                        ></p:autoComplete>
+                        <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+
+
+                    </h:panelGrid>
+
+                </div>
+                <div class="MarTop20 Container100 Responsive100">
+                    <div class="Container50 Responsive50">
+                        <p:panelGrid id="paneldos" columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+                            <p:inputText title="Color" placeholder="Color" value="#{hechesManagedBean.heces.color}" styleClass="Wid90"  />
+                            <p:inputText title="Consistencia" placeholder="Consistencia" value="#{hechesManagedBean.heces.consistencia}" styleClass="Wid90"  />
+                            <p:inputText title="Mucos" placeholder="Mucos" value="#{hechesManagedBean.heces.mucus}" styleClass="Wid90"  />
+                            <p:inputText title="Leucotios" placeholder="Leucotios" value="#{hechesManagedBean.heces.leucocitos}" styleClass="Wid90"  />
+                            <p:inputText title="Eritrocitos" placeholder="Eritrocitos" value="#{hechesManagedBean.heces.eritrocitos}" styleClass="Wid90"  />
+
+                            <p:inputText title="Bacterias" placeholder="Bacterias" value="#{hechesManagedBean.heces.bacterias}" styleClass="Wid90"  />
+                            <p:inputText title="Restos Alimenticios Micro" placeholder="Restos Alimenticios Micro" value="#{hechesManagedBean.heces.ramicro}" styleClass="Wid90"  />
+                            <p:inputText title="Restos Alimenticios Macro" placeholder="Restos Alimenticios Macro" value="#{hechesManagedBean.heces.ramacro}" styleClass="Wid90"  />
+
+                            <p:inputText title="Levaduras" placeholder="Levaduras" value="#{hechesManagedBean.heces.levaduras}" styleClass="Wid90"  />
+                            <p:inputText title="Sangre Oculta" placeholder="Sangre Oculta" value="#{hechesManagedBean.heces.sangreoculta}" styleClass="Wid90"  />
+
+                        </p:panelGrid>
+
+
+                    </div>
+
+                    <div class="Container50 Responsive50">
+                        <p:panelGrid id="paneltres" columns="2" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+                            <p:outputLabel value="Protozoarios" />
+                            <p:outputLabel value="Metazoarios" />
+                            <p:inputTextarea value="#{hechesManagedBean.heces.trofozoitos}" rows="2" placeholder="Trozofoitos" styleClass="Wid90"/>
+                            <p:inputTextarea value="#{hechesManagedBean.heces.huevos}" rows="2" placeholder="Huevos" styleClass="Wid90"/>
+                            <p:inputTextarea value="#{hechesManagedBean.heces.quistes}" rows="2" placeholder="Quistes" styleClass="Wid90"/>
+                            <p:inputTextarea value="#{hechesManagedBean.heces.larvas}" rows="2" placeholder="Larvas" styleClass="Wid90"/>
+                            <p:inputTextarea value="#{hechesManagedBean.heces.otros}" rows="3" placeholder="Otros" styleClass="Wid90"/>
+
+                        </p:panelGrid>
+
+                    </div>
+                </div>
+
+                <div class="MarTop20 Container100 Responsive100">
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton update="formheces" icon="ui-icon-check fa fa-check white Fs14" value="Registrar"  actionListener="#{hechesManagedBean.save()}" style="margin-right:5px;" />
+                              
+                        </f:facet>
+                        <f:facet name="left">
+                            <p:commandButton update="formheces" icon="ui-icon-check fa fa-check white Fs14" value="Registrar / Imprimir"  actionListener="#{hechesManagedBean.save()}" style="margin-right:5px;" />
+                               
+                        </f:facet>
+
+                    </p:toolbar>
+
+                </div>
+            </h:form>
+
+        </div>
+    </ui:define>
 </ui:composition>

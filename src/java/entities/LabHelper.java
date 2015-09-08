@@ -160,6 +160,24 @@ public class LabHelper {
             session.close();
         }
     }
+    
+     public void saveHeces(Heces o) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+            session.save(o);
+            tx.commit();
+            System.out.println("[LOG]Records inserted sucessessfully");
+        } catch (HibernateException e) {
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
       public void saveOrinaFisicoQuimico(OrinaFisicoQuimico o) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;

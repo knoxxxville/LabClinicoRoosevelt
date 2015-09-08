@@ -44,16 +44,28 @@ public class BactereologiaManagedBean {
     }
 
     public void save() {
-
-       
         bac.setPacientes(helper.getPacienteObject(strPaciente));
         bac.setDoctores(helper.getDoctorObject(strDoctor));
         helper.saveExamenBactereologia(bac);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "El examen se registro exitosamente !"));
-        
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Operacion Exitosa !"));
+        this.limpiarFormulario();
     }
 
-    
+     public void limpiarFormulario(){
+         
+         String limpiar=null;
+        strDoctor=limpiar;
+        strPaciente=limpiar;
+        bac.setFechaentrada(null);
+        bac.setFechasalida(null);
+        bac.setMuestra(limpiar);
+        bac.setObservaciones(limpiar);
+        bac.setRctobacteriano(limpiar);
+        bac.setResistentea(limpiar);
+        bac.setSeaisla(limpiar);
+        bac.setSensiablea(limpiar);
+        
+     }
 
     public String getStrDoctor() {
         return strDoctor;

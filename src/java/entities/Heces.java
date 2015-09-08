@@ -1,5 +1,5 @@
 package entities;
-// Generated 07-sep-2015 11:55:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -29,11 +29,12 @@ public class Heces  implements java.io.Serializable {
      private String quistes;
      private String larvas;
      private String otros;
+     private String consistencia;
 
     public Heces() {
     }
 
-    public Heces(Pacientes pacientes, Doctores doctores, String observaciones, Date fecha, String color, String mucus, String leucocitos, String eritrocitos, String ramacro, String ramicro, String bacterias, String levaduras, String sangreoculta, String trofozoitos, String huevos, String quistes, String larvas, String otros) {
+    public Heces(Pacientes pacientes, Doctores doctores, String observaciones, Date fecha, String color, String mucus, String leucocitos, String eritrocitos, String ramacro, String ramicro, String bacterias, String levaduras, String sangreoculta, String trofozoitos, String huevos, String quistes, String larvas, String otros, String consistencia) {
        this.pacientes = pacientes;
        this.doctores = doctores;
        this.observaciones = observaciones;
@@ -52,6 +53,7 @@ public class Heces  implements java.io.Serializable {
        this.quistes = quistes;
        this.larvas = larvas;
        this.otros = otros;
+       this.consistencia = consistencia;
     }
    
     public Integer getIdheces() {
@@ -186,6 +188,13 @@ public class Heces  implements java.io.Serializable {
     
     public void setOtros(String otros) {
         this.otros = otros;
+    }
+    public String getConsistencia() {
+        return this.consistencia;
+    }
+    
+    public void setConsistencia(String consistencia) {
+        this.consistencia = consistencia;
     }
 
 

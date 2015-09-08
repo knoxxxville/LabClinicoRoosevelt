@@ -2,16 +2,16 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="laboratorio_clinico_roosevelt"/>
-  <table-filter match-name="orina_fisicoQuimico"/>
-  <table-filter match-name="orina_microscopico"/>
   <table-filter match-name="doctores"/>
-  <table-filter match-name="hematologia_examena"/>
-  <table-filter match-name="bacteriologia"/>
-  <table-filter match-name="hematologia_examenb"/>
-  <table-filter match-name="inmunologia"/>
-  <table-filter match-name="pacientes"/>
   <table-filter match-name="quimica"/>
-  <table-filter match-name="heces"/>
-  <table-filter match-name="hematologia"/>
   <table-filter match-name="orina"/>
+  <table-filter match-name="orina_microscopico"/>
+  <table-filter match-name="inmunologia"/>
+  <table-filter match-name="heces"/>
+  <table-filter match-name="pacientes"/>
+  <table-filter match-name="hematologia_examena"/>
+  <table-filter match-name="hematologia_examenb"/>
+  <table-filter match-name="orina_fisicoQuimico"/>
+  <table-filter match-name="hematologia"/>
+  <table-filter match-name="bacteriologia"/>
 </hibernate-reverse-engineering>
