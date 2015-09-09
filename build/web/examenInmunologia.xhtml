@@ -7,88 +7,95 @@
 
     <ui:define name="content">
         <div class="layout-portlets-box">
+            <p:tabView orientation="left">
+                <p:tab title="Registro">
+                    <div class="Container100  Responsive100">
 
-            <div class="Container100  Responsive100">
-                <div class="ContainerIndent">
-                    <h1 class="BigTopic">Registro Examen Inmunologia</h1>
+                        <h1 class="BigTopic">Registro Examen Inmunologia</h1>
 
-                    <ui:include src="menuBarPacientesDoctores.xhtml" />
-                </div>
-            </div>
-            <h:form id="forminmuno">
-
-                <div class="BigTopic Container100 Responsive100">
-
-
-                    <p:messages showDetail="true" autoUpdate="true" closable="true" />
-
-                    <h:panelGrid columns="5" cellpadding="5">
-
-                        <p:outputLabel value="Paciente" />
-                        <p:autoComplete size="40" required="true" placeholder="" value="#{inmunologiaManagedBean.strPaciente}"
-                                        completeMethod="#{modulosMB.completeTextPaciente}"
-
-                                        ></p:autoComplete>
-                        <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
-                        <p:outputLabel value="Fecha Entrada" />
-                        <p:calendar placeholder="" value="#{inmunologiaManagedBean.inmunologia.fecha}" id="popupw" />
-
-                        <p:outputLabel value="Doctor" />
-                        <p:autoComplete size="40" required="true" placeholder=""  value="#{inmunologiaManagedBean.strDoctor}"
-                                        completeMethod="#{modulosMB.completeTextDoctor}"
-
-                                        ></p:autoComplete>
-                        <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
-
-
-                    </h:panelGrid>
-
-                </div>
-                <div class="MarTop20 Container100 Responsive100">
-                    <h3>Antigenos Febriles</h3>
-                    <div class="Container50 Responsive50">
-                        <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
-                            
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                        </p:panelGrid>
-
+                        <ui:include src="menuBarPacientesDoctores.xhtml" />
 
                     </div>
-                    <div class="Container50 Responsive50">
-                        <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                            <p:inputText title="Color" placeholder="Color" value="#{inmunologiaManagedBean}" styleClass="Wid90"  />
-                        </p:panelGrid>
-                    </div>
+                    <h:form id="forminmuno">
 
-                </div>
-                <div class="MarTop20 Container100 Responsive100">
-                    <p:toolbar>
-                        <f:facet name="left">
-                            <p:commandButton update="forminmuno" icon="ui-icon-check fa fa-check white Fs14" value="Registrar"  actionListener="#{inmunologiaManagedBean.save()}" style="margin-right:5px;" />
+                        <div class="BigTopic Container100 Responsive100">
 
-                        </f:facet>
-                        <f:facet name="left">
-                            <p:commandButton update="forminmuno" icon="ui-icon-check fa fa-check white Fs14" value="Registrar / Imprimir"  actionListener="#{inmunologiaManagedBean.save()}" style="margin-right:5px;" />
 
-                        </f:facet>
+                            <p:messages showDetail="true" autoUpdate="true" closable="true" />
 
-                    </p:toolbar>
+                            <h:panelGrid columns="5" cellpadding="5">
 
-                </div>
-            </h:form>
+                                <p:outputLabel value="Paciente" />
+                                <p:autoComplete size="40" required="true" placeholder="" value="#{inmunologiaManagedBean.strPaciente}"
+                                                completeMethod="#{modulosMB.completeTextPaciente}"
+
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                                <p:outputLabel value="Fecha Entrada" />
+                                <p:calendar placeholder="" value="#{inmunologiaManagedBean.inmunologia.fecha}" id="popupw" />
+
+                                <p:outputLabel value="Doctor" />
+                                <p:autoComplete size="40" required="true" placeholder=""  value="#{inmunologiaManagedBean.strDoctor}"
+                                                completeMethod="#{modulosMB.completeTextDoctor}"
+
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+
+
+                            </h:panelGrid>
+
+                        </div>
+
+
+                        <div class="MarTop20 Container100 Responsive100">
+
+                            <p:panel   header="Antigenos Febriles"  style="margin-bottom:5px;margin-bottom: 10px;">
+
+
+                                <p:panelGrid  columns="2" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+                                    <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                                        <p:inputText title="Tifico O" placeholder="Tifico O" value="#{inmunologiaManagedBean.inmunologia.tificoo}" styleClass="Wid90"  />
+                                        <p:inputText title="Tifico H" placeholder="Tifico H" value="#{inmunologiaManagedBean.inmunologia.tificoh}" styleClass="Wid90"  />
+                                        <p:inputText title="Paratifico A" placeholder="Paratifico A" value="#{inmunologiaManagedBean.inmunologia.paratificoa}" styleClass="Wid90"  />
+                                        <p:inputText title="Paratifico B" placeholder="Paratifico B" value="#{inmunologiaManagedBean.inmunologia.paratificob}" styleClass="Wid90"  />
+                                        <p:inputText title="Proteus OX 19" placeholder="Proteus OX 19" value="#{inmunologiaManagedBean.inmunologia.proteux19}" styleClass="Wid90"  />
+                                        <p:inputText title="Brucella" placeholder="Brucella" value="#{inmunologiaManagedBean.inmunologia.brucella}" styleClass="Wid90"  />
+
+                                    </p:panelGrid>
+                                    <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                                        <p:inputText title="V.D.R.L" placeholder="V.D.R.L" value="#{inmunologiaManagedBean.inmunologia.vdrl}" styleClass="Wid90"  />
+                                        <p:inputText title="Latex RA" placeholder="Latex RA" value="#{inmunologiaManagedBean.inmunologia.latexra}" styleClass="Wid90"  />
+                                        <p:inputText title="Proteina C Reactiva" placeholder="Proteina C Reactiva" value="#{inmunologiaManagedBean.inmunologia.proteinac}" styleClass="Wid90"  />
+                                        <p:inputText title="Monotest" placeholder="Monotest" value="#{inmunologiaManagedBean.inmunologia.monotest}" styleClass="Wid90"  />
+                                        <p:inputText title="Antiestreptolisina O" placeholder="Antiestreptolisina O" value="#{inmunologiaManagedBean.inmunologia.antiestreptolisinao}" styleClass="Wid90"  />
+                                        <p:inputText title="P. de Embarazo en Orina" placeholder="P. de Embarazo en Orina" value="#{inmunologiaManagedBean.inmunologia.embarazoorina}" styleClass="Wid90"  />
+                                        <p:inputText title="P. de Embarazo en Sangre" placeholder="P. de Embarazo en Sangre" value="#{inmunologiaManagedBean.inmunologia.embarazosangre}" styleClass="Wid90"  />
+                                        <p:inputText title="H.I.V (SIDA)" placeholder="H.I.V (SIDA)" value="#{inmunologiaManagedBean.inmunologia.vih}" styleClass="Wid90"  />
+                                        <p:inputText title="H.B.S Antigeno Australiano" placeholder="H.B.S Antigeno Australiano" value="#{inmunologiaManagedBean.inmunologia.hbs}" styleClass="Wid90"  />
+
+                                    </p:panelGrid>
+
+
+                                </p:panelGrid>
+                            </p:panel>
+
+
+                        </div>
+                        <p:splitButton style="margin-bottom: 5px;" actionListener="#{inmunologiaManagedBean.save()}" value="Registrar" icon="ui-icon-check fa fa-check white Fs14">
+                            <p:menuitem actionListener="#{inmunologiaManagedBean.save()}" value="Registrar / Imprimir" icon="ui-icon-check fa fa-check white Fs14" />
+
+                        </p:splitButton>
+
+                    </h:form>
+
+                </p:tab>
+                <p:tab title="Consulta">
+                    sdd
+                </p:tab>
+
+            </p:tabView>
+
         </div>
     </ui:define>
 </ui:composition>

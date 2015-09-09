@@ -5,6 +5,7 @@
  */
 package entities;
 
+import DTO.BacteriologiaDTO;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -21,26 +22,27 @@ public class LabHelper {
     Session session = null;
     String selectDoctores = "from Doctores b";
     String selectPacientes = "from Pacientes b";
-    String selectBateriologia = "from Bacteriologia b order by b.idbacteriologia desc";
+    String selectBateriologia = "select b.idbacteriologia,p.nombre ,p.edad, d.nombre,b.observaciones from Bacteriologia b inner join b.pacientes p inner join b.doctores d order by b.idbacteriologia desc";
+    String selectBateriologia2 = "from Bacteriologia b join fetch b.pacientes join fetch b.doctores order by b.idbacteriologia desc";
 
     public LabHelper() {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
 
     public List<Bacteriologia> getExamnesBactereologia() {
-        List<Bacteriologia> examList = null;
+        List<Bacteriologia> lista = null;
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Query q = session.createQuery(selectBateriologia);
-            examList = (List<Bacteriologia>) q.list();
+            Query q = session.createQuery(selectBateriologia2);
+            lista = (List<Bacteriologia>) q.list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return examList;
+        return lista;
     }
 
     public List<Pacientes> getPacientes() {
@@ -111,22 +113,6 @@ public class LabHelper {
         return resultList;
     }
 
-    public void saveExamenBactereologia(Bacteriologia bac) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            session.save(bac);
-            tx.commit();
-            System.out.println("[LOG]Records inserted sucessessfully");
-        } catch (HibernateException e) {
-            tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-
     public void savePacientes(Pacientes o) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -144,62 +130,12 @@ public class LabHelper {
         }
     }
 
-    public void saveOrina(Orina o) {
+    public void save(Object o) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            
-            session.save(o);
-            tx.commit();
-            System.out.println("[LOG]Records inserted sucessessfully");
-        } catch (HibernateException e) {
-            tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-    
-     public void saveHeces(Heces o) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            
-            session.save(o);
-            tx.commit();
-            System.out.println("[LOG]Records inserted sucessessfully");
-        } catch (HibernateException e) {
-            tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-    
-      public void saveOrinaFisicoQuimico(OrinaFisicoQuimico o) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            
-            session.save(o);
-            tx.commit();
-            System.out.println("[LOG]Records inserted sucessessfully");
-        } catch (HibernateException e) {
-            tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-       public void saveOrinaMicroscopico(OrinaMicroscopico o) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            
+
             session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");

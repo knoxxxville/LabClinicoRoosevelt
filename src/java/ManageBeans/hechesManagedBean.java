@@ -39,7 +39,7 @@ public class hechesManagedBean {
 
         heces.setPacientes(helper.getPacienteObject(strPaciente));
         heces.setDoctores(helper.getDoctorObject(strDoctor));
-        helper.saveHeces(heces);
+        helper.save(heces);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("El examen se registro exitosamente !"));
         this.limpiarFormulario();
     }

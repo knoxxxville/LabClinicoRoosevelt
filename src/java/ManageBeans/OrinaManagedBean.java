@@ -44,13 +44,13 @@ public class OrinaManagedBean {
        
             orina.setPacientes(helper.getPacienteObject(strPaciente));
             orina.setDoctores(helper.getDoctorObject(strDoctor));
-            helper.saveOrina(orina);
+            helper.save(orina);
 
             orinaFisicoQuimica.setOrina(orina);
-            helper.saveOrinaFisicoQuimico(orinaFisicoQuimica);
+            helper.save(orinaFisicoQuimica);
 
             orinaMicroscopico.setOrina(orina);
-            helper.saveOrinaMicroscopico(orinaMicroscopico);
+            helper.save(orinaMicroscopico);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("El examen se registro exitosamente !"));
 

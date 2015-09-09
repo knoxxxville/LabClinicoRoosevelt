@@ -31,7 +31,37 @@ public class InmunologiaManagedBean {
     }
 
     public void save() {
+        inmunologia.setPacientes(helper.getPacienteObject(strPaciente));
+        inmunologia.setDoctores(helper.getDoctorObject(strDoctor));
+
+        helper.save(inmunologia);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Operacion Exitosa !"));
+        this.limpiarFormulario();
+
+    }
+
+    public void limpiarFormulario() {
+        String limpiar=null;
+        
+        strDoctor=limpiar;
+        strPaciente=limpiar;
+        inmunologia.setAntiestreptolisinao(limpiar);
+        inmunologia.setBrucella(limpiar);
+        inmunologia.setEmbarazoorina(limpiar);
+        inmunologia.setEmbarazosangre(limpiar);
+        inmunologia.setFecha(null);
+        inmunologia.setHbs(limpiar);
+        inmunologia.setLatexra(limpiar);
+        inmunologia.setMonotest(limpiar);
+        inmunologia.setParatificoa(limpiar);
+        inmunologia.setParatificob(limpiar);
+        inmunologia.setProteinac(limpiar);
+        inmunologia.setProteux19(limpiar);
+        inmunologia.setTificoh(limpiar);
+        inmunologia.setTificoo(limpiar);
+        inmunologia.setVdrl(limpiar);
+        inmunologia.setVih(limpiar);
+        
     }
 
     public String getStrPaciente() {

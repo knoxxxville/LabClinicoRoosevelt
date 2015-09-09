@@ -5,6 +5,7 @@
  */
 package ManageBeans;
 
+import DTO.BacteriologiaDTO;
 import entities.Bacteriologia;
 import entities.Doctores;
 import entities.LabHelper;
@@ -30,7 +31,7 @@ public class BactereologiaManagedBean {
     private Doctores doctor;
     private String strPaciente;
     private String strDoctor;
-  
+
     private List<Bacteriologia> filteredBactereologias = new ArrayList<Bacteriologia>();
     LabHelper helper;
 
@@ -46,16 +47,17 @@ public class BactereologiaManagedBean {
     public void save() {
         bac.setPacientes(helper.getPacienteObject(strPaciente));
         bac.setDoctores(helper.getDoctorObject(strDoctor));
-        helper.saveExamenBactereologia(bac);
+        helper.save(bac);
+
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Operacion Exitosa !"));
         this.limpiarFormulario();
     }
 
-     public void limpiarFormulario(){
-         
-         String limpiar=null;
-        strDoctor=limpiar;
-        strPaciente=limpiar;
+    public void limpiarFormulario() {
+
+        String limpiar = null;
+        strDoctor = limpiar;
+        strPaciente = limpiar;
         bac.setFechaentrada(null);
         bac.setFechasalida(null);
         bac.setMuestra(limpiar);
@@ -64,8 +66,8 @@ public class BactereologiaManagedBean {
         bac.setResistentea(limpiar);
         bac.setSeaisla(limpiar);
         bac.setSensiablea(limpiar);
-        
-     }
+
+    }
 
     public String getStrDoctor() {
         return strDoctor;
@@ -75,7 +77,6 @@ public class BactereologiaManagedBean {
         this.strDoctor = strDoctor;
     }
 
-    
     public String getStrPaciente() {
         return strPaciente;
     }

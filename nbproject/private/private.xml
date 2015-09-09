@@ -8,13 +8,11 @@
             <file>file:/C:/Users/Lenovo/Dropbox/LabClinicoRoosevelt/v2/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
         </group>
         <group>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/InmunologiaManagedBean.java</file>
             <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenHeces.xhtml</file>
             <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/entities/LabHelper.java</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/hibernate.cfg.xml</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/entities/Doctores.java</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenOrina.xhtml</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/OrinaManagedBean.java</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/hechesManagedBean.java</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenInmunologia.xhtml</file>
         </group>
     </open-files>
 </project-private>
