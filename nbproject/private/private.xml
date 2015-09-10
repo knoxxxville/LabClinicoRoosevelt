@@ -8,11 +8,10 @@
             <file>file:/C:/Users/Lenovo/Dropbox/LabClinicoRoosevelt/v2/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
         </group>
         <group>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/InmunologiaManagedBean.java</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenHeces.xhtml</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenBactereologia.xhtml</file>
             <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/entities/LabHelper.java</file>
             <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/src/java/ManageBeans/BactereologiaManagedBean.java</file>
-            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/examenInmunologia.xhtml</file>
+            <file>file:/Users/MacAlex/Documents/Proyectos/Netbeans/LabClinicoRoosevelt/web/searchBactereologia.xhtml</file>
         </group>
     </open-files>
 </project-private>

@@ -22,8 +22,7 @@ public class LabHelper {
     Session session = null;
     String selectDoctores = "from Doctores b";
     String selectPacientes = "from Pacientes b";
-    String selectBateriologia = "select b.idbacteriologia,p.nombre ,p.edad, d.nombre,b.observaciones from Bacteriologia b inner join b.pacientes p inner join b.doctores d order by b.idbacteriologia desc";
-    String selectBateriologia2 = "from Bacteriologia b join fetch b.pacientes join fetch b.doctores order by b.idbacteriologia desc";
+    String selectBateriologia = "from Bacteriologia b join fetch b.pacientes join fetch b.doctores order by b.idbacteriologia desc";
 
     public LabHelper() {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -35,7 +34,7 @@ public class LabHelper {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Query q = session.createQuery(selectBateriologia2);
+            Query q = session.createQuery(selectBateriologia);
             lista = (List<Bacteriologia>) q.list();
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,6 +43,8 @@ public class LabHelper {
         }
         return lista;
     }
+    
+  
 
     public List<Pacientes> getPacientes() {
         List<Pacientes> lista = null;

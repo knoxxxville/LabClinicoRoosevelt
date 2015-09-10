@@ -5,13 +5,20 @@
                 xmlns:p="http://primefaces.org/ui">
 
 
-               
-
-    <p:dataTable value="#{bactereologiaManagedBean.getBactereologias()}" var="bac" rows="10"
+    <h:form>
+        <p:commandButton update="tablebac" actionListener="#{bactereologiaManagedBean.cargarExamenes()}" value="Buscar" />
+        <p:dataTable id="tablebac" value="#{bactereologiaManagedBean.getBactereologias()}" var="bac" rows="15"
                  >
 
         <p:column  headerText="ID examen">
             <h:outputText value="#{bac.idbacteriologia}" />
+        </p:column>
+             <p:column  headerText="Fecha Entrada"   >
+                 <h:outputText value="#{bac.fechaentrada}" />
+        </p:column>
+            
+             <p:column  headerText="Fecha Salida"   >
+                 <h:outputText value="#{bac.fechasalida}" />
         </p:column>
         <p:column  headerText="Doctor">
             <h:outputText value="#{bac.doctores.nombre}" />
@@ -20,10 +27,17 @@
         <p:column  headerText="Paciente"   >
             <h:outputText value="#{bac.pacientes.nombre}" />
         </p:column>
+        <p:column  headerText="Paciente"   >
+            <p:commandButton actionListener="#{bactereologiaManagedBean.imprimir()}" value="Imprimir" />
+        </p:column>
+        
 
        
     </p:dataTable>
 
+    </h:form>       
+
+   
 
 
 

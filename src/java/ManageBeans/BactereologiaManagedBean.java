@@ -40,8 +40,12 @@ public class BactereologiaManagedBean {
         paciente = new Pacientes();
 
         helper = new LabHelper();
-        bactereologias = helper.getExamnesBactereologia();
+        
 
+    }
+    
+    public void cargarExamenes(){
+        bactereologias = helper.getExamnesBactereologia();
     }
 
     public void save() {
@@ -51,6 +55,9 @@ public class BactereologiaManagedBean {
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Operacion Exitosa !"));
         this.limpiarFormulario();
+    }
+    public void imprimir(){
+        
     }
 
     public void limpiarFormulario() {
