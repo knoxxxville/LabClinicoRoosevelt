@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 
@@ -9,8 +9,8 @@ package entities;
 public class HematologiaExamenb  implements java.io.Serializable {
 
 
-     private int idhematologiaexamenb;
-     private Integer idhematologia;
+     private Integer idhematologiaexamenb;
+     private Hematologia hematologia;
      private String globblancos;
      private String neutrofiliossegmen;
      private String neutrofiliosbanda;
@@ -18,18 +18,12 @@ public class HematologiaExamenb  implements java.io.Serializable {
      private String eosinofilos;
      private String monocitos;
      private String basofilos;
-     private Hematologia hematologia;
 
     public HematologiaExamenb() {
     }
 
-	
-    public HematologiaExamenb(int idhematologiaexamenb) {
-        this.idhematologiaexamenb = idhematologiaexamenb;
-    }
-    public HematologiaExamenb(int idhematologiaexamenb, Integer idhematologia, String globblancos, String neutrofiliossegmen, String neutrofiliosbanda, String linfocitos, String eosinofilos, String monocitos, String basofilos, Hematologia hematologia) {
-       this.idhematologiaexamenb = idhematologiaexamenb;
-       this.idhematologia = idhematologia;
+    public HematologiaExamenb(Hematologia hematologia, String globblancos, String neutrofiliossegmen, String neutrofiliosbanda, String linfocitos, String eosinofilos, String monocitos, String basofilos) {
+       this.hematologia = hematologia;
        this.globblancos = globblancos;
        this.neutrofiliossegmen = neutrofiliossegmen;
        this.neutrofiliosbanda = neutrofiliosbanda;
@@ -37,22 +31,21 @@ public class HematologiaExamenb  implements java.io.Serializable {
        this.eosinofilos = eosinofilos;
        this.monocitos = monocitos;
        this.basofilos = basofilos;
-       this.hematologia = hematologia;
     }
    
-    public int getIdhematologiaexamenb() {
+    public Integer getIdhematologiaexamenb() {
         return this.idhematologiaexamenb;
     }
     
-    public void setIdhematologiaexamenb(int idhematologiaexamenb) {
+    public void setIdhematologiaexamenb(Integer idhematologiaexamenb) {
         this.idhematologiaexamenb = idhematologiaexamenb;
     }
-    public Integer getIdhematologia() {
-        return this.idhematologia;
+    public Hematologia getHematologia() {
+        return this.hematologia;
     }
     
-    public void setIdhematologia(Integer idhematologia) {
-        this.idhematologia = idhematologia;
+    public void setHematologia(Hematologia hematologia) {
+        this.hematologia = hematologia;
     }
     public String getGlobblancos() {
         return this.globblancos;
@@ -102,13 +95,6 @@ public class HematologiaExamenb  implements java.io.Serializable {
     
     public void setBasofilos(String basofilos) {
         this.basofilos = basofilos;
-    }
-    public Hematologia getHematologia() {
-        return this.hematologia;
-    }
-    
-    public void setHematologia(Hematologia hematologia) {
-        this.hematologia = hematologia;
     }
 
 

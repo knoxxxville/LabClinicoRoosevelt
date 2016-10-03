@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 07-sep-2015 20:24:24 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="entities.Heces" table="heces" catalog="laboratorio_clinico_roosevelt">
-        <id name="idheces" type="int">
+        <id name="idheces" type="java.lang.Integer">
             <column name="idheces" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="pacientes" class="entities.Pacientes" fetch="select">
             <column name="idpaciente" />
@@ -61,6 +61,9 @@
         </property>
         <property name="otros" type="string">
             <column name="otros" length="45" />
+        </property>
+        <property name="consistencia" type="string">
+            <column name="consistencia" length="45" />
         </property>
     </class>
 </hibernate-mapping>

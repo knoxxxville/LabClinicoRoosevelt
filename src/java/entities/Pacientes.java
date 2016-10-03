@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Pacientes  implements java.io.Serializable {
 
 
-     private int idpaciente;
+     private Integer idpaciente;
      private String nombre;
      private String edad;
      private Set<Bacteriologia> bacteriologias = new HashSet<Bacteriologia>(0);
@@ -24,12 +24,7 @@ public class Pacientes  implements java.io.Serializable {
     public Pacientes() {
     }
 
-	
-    public Pacientes(int idpaciente) {
-        this.idpaciente = idpaciente;
-    }
-    public Pacientes(int idpaciente, String nombre, String edad, Set<Bacteriologia> bacteriologias, Set<Quimica> quimicas, Set<Heces> heceses, Set<Orina> orinas, Set<Hematologia> hematologias, Set<Inmunologia> inmunologias) {
-       this.idpaciente = idpaciente;
+    public Pacientes(String nombre, String edad, Set<Bacteriologia> bacteriologias, Set<Quimica> quimicas, Set<Heces> heceses, Set<Orina> orinas, Set<Hematologia> hematologias, Set<Inmunologia> inmunologias) {
        this.nombre = nombre;
        this.edad = edad;
        this.bacteriologias = bacteriologias;
@@ -40,11 +35,11 @@ public class Pacientes  implements java.io.Serializable {
        this.inmunologias = inmunologias;
     }
    
-    public int getIdpaciente() {
+    public Integer getIdpaciente() {
         return this.idpaciente;
     }
     
-    public void setIdpaciente(int idpaciente) {
+    public void setIdpaciente(Integer idpaciente) {
         this.idpaciente = idpaciente;
     }
     public String getNombre() {

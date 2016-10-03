@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Doctores  implements java.io.Serializable {
 
 
-     private int iddoctor;
+     private Integer iddoctor;
      private String nombre;
      private Set<Inmunologia> inmunologias = new HashSet<Inmunologia>(0);
      private Set<Heces> heceses = new HashSet<Heces>(0);
@@ -23,12 +23,7 @@ public class Doctores  implements java.io.Serializable {
     public Doctores() {
     }
 
-	
-    public Doctores(int iddoctor) {
-        this.iddoctor = iddoctor;
-    }
-    public Doctores(int iddoctor, String nombre, Set<Inmunologia> inmunologias, Set<Heces> heceses, Set<Orina> orinas, Set<Bacteriologia> bacteriologias, Set<Quimica> quimicas, Set<Hematologia> hematologias) {
-       this.iddoctor = iddoctor;
+    public Doctores(String nombre, Set<Inmunologia> inmunologias, Set<Heces> heceses, Set<Orina> orinas, Set<Bacteriologia> bacteriologias, Set<Quimica> quimicas, Set<Hematologia> hematologias) {
        this.nombre = nombre;
        this.inmunologias = inmunologias;
        this.heceses = heceses;
@@ -38,11 +33,11 @@ public class Doctores  implements java.io.Serializable {
        this.hematologias = hematologias;
     }
    
-    public int getIddoctor() {
+    public Integer getIddoctor() {
         return this.iddoctor;
     }
     
-    public void setIddoctor(int iddoctor) {
+    public void setIddoctor(Integer iddoctor) {
         this.iddoctor = iddoctor;
     }
     public String getNombre() {

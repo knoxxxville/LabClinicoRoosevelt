@@ -1,11 +1,101 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="template/template.xhtml">
-	
-	<ui:define name="contenido">
-		EXAMEN AQUI 
-	</ui:define>
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+            <p:tabView orientation="left">
+                <p:tab title="Registro">
+
+                    <div class="Container100  Responsive100">
+
+                        <h1 class="BigTopic">Registro Examen Hematologia</h1>
+
+                        <ui:include src="menuBarPacientesDoctores.xhtml" />
+
+                    </div>
+
+                    <h:form id="formhema">
+                        <div class="BigTopic Container100 Responsive100">
+
+
+                            <p:messages showDetail="true" autoUpdate="true" closable="true" />
+
+                            <h:panelGrid columns="5" cellpadding="5">
+
+                                <p:outputLabel value="Paciente" />
+                                <p:autoComplete size="40" required="true" placeholder="" value="#{hematologiaManagedBean.strPaciente}"
+                                                completeMethod="#{modulosMB.completeTextPaciente}"
+
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                                <p:outputLabel value="Fecha Entrada" />
+                                <p:calendar placeholder="" value="#{hematologiaManagedBean.hematologia.fecha}" id="popupw" />
+
+                                <p:outputLabel value="Doctor" />
+                                <p:autoComplete size="40" required="true" placeholder=""  value="#{hematologiaManagedBean.strDoctor}"
+                                                completeMethod="#{modulosMB.completeTextDoctor}"
+
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+
+
+                            </h:panelGrid>
+
+                        </div>
+                        <div class="MarTop20 Container100 Responsive100">
+                            <p:panel   header="Datos"  style="margin-bottom:5px;margin-bottom: 10px;">
+                                <p:panelGrid  columns="2" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                                    <p:inputText title="Celulas LE" placeholder="Celulas LE" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                    <p:inputText title="Gota Gruesa" placeholder="Gota Gruesa" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                    <p:inputText title="Plaquetas" placeholder="Plaquetas" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                    <p:inputText title="Reticulocitos" placeholder="Reticulocitos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                    <p:inputText title="Eritrosedimentacion" placeholder="Eritrosedimentacion" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                    <p:inputText title="Frotis de sangre Periferica" placeholder="Frotis de sangre Periferica" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+
+                                    <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                                        <h3>Examen A</h3>
+                                        <p:inputText title="Globulos Rojos" placeholder="Globulo Rojo" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Hematocrito" placeholder="Hematocrito" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Hemoglobina" placeholder="Hemoglobina" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="VCM" placeholder="VCM" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="HCM" placeholder="HCM" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText  title="HBCM" placeholder="HBCM" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+
+
+                                    </p:panelGrid>
+                                    <p:panelGrid  columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                                        <h3>Examen B</h3>
+                                        <p:inputText title="Globulos Blancos" placeholder="Globulo Blancos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Neutrofilios(Segmen)" placeholder="Neutrofilios(Segmen)" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Neutrofilos(Banda)" placeholder="Neutrofilos(Banda)" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Linfocitos" placeholder="Linfocitos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Eosinofilos" placeholder="Eosinofilos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Monocitos" placeholder="Monocitos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+                                        <p:inputText title="Basofilos" placeholder="Basofilos" value="#{hematologiaManagedBean}" styleClass="Wid90"  />
+
+
+                                    </p:panelGrid>
+
+                                </p:panelGrid>
+
+                            </p:panel>
+
+                        </div>
+                        <p:splitButton style="margin-bottom: 5px;" actionListener="#{hematologiaManagedBean.save()}" value="Registrar" icon="ui-icon-check fa fa-check white Fs14">
+                            <p:menuitem actionListener="#{hematologiaManagedBean.save()}" value="Registrar / Imprimir" icon="ui-icon-check fa fa-check white Fs14" />
+
+                        </p:splitButton>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Consultas">
+                    sd
+                </p:tab>
+
+            </p:tabView>
+        </div>
+    </ui:define>
 </ui:composition>

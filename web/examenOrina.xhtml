@@ -8,130 +8,151 @@
     <ui:define name="content">
         <div class="layout-portlets-box">
 
-            <div class="Container100 Responsive100">
-                <div class="ContainerIndent">
-                    <h1 class="BigTopic">Registro Examen Orina</h1>
+            <p:tabView orientation="left">
+                <p:tab title="Registro">
 
-                    <ui:include src="menuBarPacientesDoctores.xhtml" />
-                </div>
-            </div>
-            <h:form>
+                    <div class="Container100  Responsive100">
+                        <div class="ContainerIndent">
+                            <h1 class="BigTopic">Registro Examen Orina</h1>
 
-                <div class="BigTopic Container100 Responsive100">
+                            <ui:include src="menuBarPacientesDoctores.xhtml" />
+                        </div>
+                    </div>
+                    <h:form id="formorina">
 
-
-                    <p:messages showDetail="true" autoUpdate="true" closable="true" />
-                    
-                    <h:panelGrid columns="5" cellpadding="5">
-
-                        <p:outputLabel value="Paciente" />
-                        <p:autoComplete size="40" required="true" placeholder="" value="#{bactereologiaManagedBean.strPaciente}"
-                                        completeMethod="#{bactereologiaManagedBean.completeTextPaciente}"
-
-                                        ></p:autoComplete>
-                        <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
-                        <p:outputLabel value="Fecha Entrada" />
-                        <p:calendar placeholder="" value="#{bactereologiaManagedBean.bac.fechaentrada}" id="popupw" />
-
-                        <p:outputLabel value="Doctor" />
-                        <p:autoComplete size="40" required="true" placeholder=""  value="#{bactereologiaManagedBean.strDoctor}"
-                                        completeMethod="#{bactereologiaManagedBean.completeTextDoctor}"
-
-                                        ></p:autoComplete>
-                        <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
+                        <div class="BigTopic Container100 Responsive100">
 
 
-                    </h:panelGrid>
+                            <p:messages showDetail="true" autoUpdate="true" closable="true" />
 
-                </div>
-               
-                <div class=" MarTop20 Container50 Responsive50">
-                    <h3 class="FontBold">Examen Fisico Quimico</h3>
-                    <p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
-                        <p:outputLabel value="Color"  />
-                        <p:inputText placeholder="Color" value="" styleClass="Wid90"  />
+                            <h:panelGrid columns="5" cellpadding="5">
 
-                        <p:outputLabel value="Aspecto" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+                                <p:outputLabel value="Paciente" />
+                                <p:autoComplete size="40"  placeholder="" value="#{orinaManagedBean.strPaciente}"
+                                                completeMethod="#{modulosMB.completeTextPaciente}"
 
-                        <p:outputLabel value="Densidad" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg1').show();"   />
+                                <p:outputLabel value="Fecha Entrada" />
+                                <p:calendar placeholder="" value="#{orinaManagedBean.orina.fecha}" id="popupw" />
 
-                        <p:outputLabel value="PH" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+                                <p:outputLabel value="Doctor" />
+                                <p:autoComplete size="40"  placeholder=""  value="#{orinaManagedBean.strDoctor}"
+                                                completeMethod="#{modulosMB.completeTextDoctor}"
 
-                        <p:outputLabel value="Nitritos" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Proteinas" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Glucos" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Bilirrubina" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Cetonas" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Sangre" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
-
-                        <p:outputLabel value="Urobilinogeno" />
-                        <p:inputText placeholder="" value="" styleClass="Wid90"  />
+                                                ></p:autoComplete>
+                                <p:commandButton value="+" type="button" onclick="PF('dlg2').show();"   />
 
 
-                    </p:panelGrid>
-                </div>
-                <div class=" MarTop20 Container50 Responsive50">
-                    <h3 class="FontBold ">Examen Microscopico</h3>
-                    <p:panelGrid columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+                            </h:panelGrid>
+
+                        </div>
+
+                        <div class=" MarTop20 Container50 Responsive50">
+                            <h3 class="FontBold">Examen Fisico Quimico</h3>
+                            <p:panelGrid columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+                                <p:inputText placeholder="Color" title="Color" value="#{orinaManagedBean.orinaFisicoQuimica.color}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Cil. Leucocitarios" placeholder="Cil. Leucocitarios" value="" styleClass="Wid90"  />
+                                <p:inputText placeholder="Aspecto" title="Aspecto" value="#{orinaManagedBean.orinaFisicoQuimica.aspecto}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Hematicos" placeholder="Hematicos" value="" styleClass="Wid90"  />
+                                <p:inputText placeholder="Densidad" title="Densidad" value="#{orinaManagedBean.orinaFisicoQuimica.densidad}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Granulosos" placeholder="Granulosos" value="" styleClass="Wid90"  />
+                                <p:inputText placeholder="PH" title="PH" value="#{orinaManagedBean.orinaFisicoQuimica.ph}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Cereos" placeholder="Cereos" value="" styleClass="Wid90"  />
-
-                        <p:inputText title="Epiteliales" placeholder="Epiteliales" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Nitritos" title="Nitritos" value="#{orinaManagedBean.orinaFisicoQuimica.nitritos}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Hialinos" placeholder="Hialinos" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Proteinas" title="Proteinas" value="#{orinaManagedBean.orinaFisicoQuimica.proteinas}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Leucocitos" placeholder="Leucocitos" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Glucos" title="Glucos" value="#{orinaManagedBean.orinaFisicoQuimica.glucos}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Hematies" placeholder="Hematies" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Bilirrubina" title="Bilirrubina" value="#{orinaManagedBean.orinaFisicoQuimica.bilirrubina}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Cel Epiteliales" placeholder="Cel Epiteliales" value=""  styleClass="Wid90"  />
-
-                        <p:inputText title="Bacterias" placeholder="Bacterias" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Cetonas" title="Cetonas" value="#{orinaManagedBean.orinaFisicoQuimica.cetonas}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Fil. Mucoides" placeholder="Fil. Mucoides" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Sangre" title="Sangre" value="#{orinaManagedBean.orinaFisicoQuimica.sangre}" styleClass="Wid90"  />
 
 
-                        <p:inputText title="Cristales" placeholder="Cristales" value=""  styleClass="Wid90"  />
+                                <p:inputText placeholder="Urobilinogeno" title="Urobilinogeno" value="#{orinaManagedBean.orinaFisicoQuimica.urobilinogeno}" styleClass="Wid90"  />
 
-                    </p:panelGrid>
-                </div>
-                <div class="Container50 Responsive50">
-                    <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
 
-                        <p:inputTextarea value="" rows="5" placeholder="Observaciones" styleClass="Wid100"/>
-                    </p:panelGrid>
-                </div>
-                <div class="Container50 Responsive50"></div>
-            </h:form>
+                            </p:panelGrid>
+                        </div>
+                        <div class=" MarTop20 Container50 Responsive50">
+                            <h3 class="FontBold ">Examen Microscopico</h3>
+                            <p:panelGrid columns="1" layout="grid" style="border:0px !important; background:none;margin-top: 10px;" >
+
+
+                                <p:inputText title="Cil. Leucocitarios" placeholder="Cil. Leucocitarios" value="#{orinaManagedBean.orinaMicroscopico.leucocitarios}" styleClass="Wid90"  />
+
+
+                                <p:inputText title="Hematicos" placeholder="Hematicos" value="#{orinaManagedBean.orinaMicroscopico.leucocitarios}" styleClass="Wid90"  />
+
+
+                                <p:inputText title="Granulosos" placeholder="Granulosos" value="#{orinaManagedBean.orinaMicroscopico.granulosos}" styleClass="Wid90"  />
+
+
+                                <p:inputText title="Cereos" placeholder="Cereos" value="#{orinaManagedBean.orinaMicroscopico.cereos}" styleClass="Wid90"  />
+
+                                <p:inputText title="Epiteliales" placeholder="Epiteliales" value="#{orinaManagedBean.orinaMicroscopico.epiteliales}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Hialinos" placeholder="Hialinos" value="#{orinaManagedBean.orinaMicroscopico.hialinos}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Leucocitos" placeholder="Leucocitos" value="#{orinaManagedBean.orinaMicroscopico.leucocitos}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Hematies" placeholder="Hematies" value="#{orinaManagedBean.orinaMicroscopico.hematies}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Cel Epiteliales" placeholder="Cel Epiteliales" value="#{orinaManagedBean.orinaMicroscopico.celepiteliales}"  styleClass="Wid90"  />
+
+                                <p:inputText title="Bacterias" placeholder="Bacterias" value="#{orinaManagedBean.orinaMicroscopico.bacterias}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Fil. Mucoides" placeholder="Fil. Mucoides" value="#{orinaManagedBean.orinaMicroscopico.mucoides}"  styleClass="Wid90"  />
+
+
+                                <p:inputText title="Cristales" placeholder="Cristales" value="#{orinaManagedBean.orinaMicroscopico.cristales}"  styleClass="Wid90"  />
+
+                            </p:panelGrid>
+                        </div>
+                        <div class="Container50 Responsive50">
+                            <p:panelGrid layout="grid" style="border:0px !important; background:none;margin-top: 10px;" columns="1" >
+
+                                <p:inputTextarea value="#{orinaManagedBean.orina.observaciones}" rows="5" placeholder="Observaciones" styleClass="Wid90"/>
+
+                            </p:panelGrid>
+                        </div>
+                        <div class="MarTop20 Container100 Responsive100">
+                            
+                             <p:splitButton style="margin-bottom: 5px;" actionListener="#{orinaManagedBean.saveExamen()}" value="Registrar" icon="ui-icon-check fa fa-check white Fs14">
+                            <p:menuitem actionListener="#{orinaManagedBean.saveExamen()}" value="Registrar / Imprimir" icon="ui-icon-check fa fa-check white Fs14" />
+
+                        </p:splitButton>
+                           
+
+                        </div>
+
+                        
+                    </h:form>
+                </p:tab>
+                <p:tab title="Consultas">
+
+                </p:tab>
+
+            </p:tabView>
+
         </div>
     </ui:define>
 </ui:composition>

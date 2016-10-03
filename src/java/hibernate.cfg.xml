@@ -10,17 +10,18 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="entities/Bacteriologia.hbm.xml"/>
-    <mapping resource="entities/Pacientes.hbm.xml"/>
-    <mapping resource="entities/Hematologia.hbm.xml"/>
-    <mapping resource="entities/Doctores.hbm.xml"/>
-    <mapping resource="entities/Orina.hbm.xml"/>
-    <mapping resource="entities/OrinaFisicoQuimico.hbm.xml"/>
-    <mapping resource="entities/OrinaMicroscopico.hbm.xml"/>
-    <mapping resource="entities/HematologiaExamena.hbm.xml"/>
-    <mapping resource="entities/Inmunologia.hbm.xml"/>
-    <mapping resource="entities/Quimica.hbm.xml"/>
+    
     <mapping resource="entities/HematologiaExamenb.hbm.xml"/>
+    <mapping resource="entities/OrinaFisicoQuimico.hbm.xml"/>
+    <mapping resource="entities/HematologiaExamena.hbm.xml"/>
+    <mapping resource="entities/Bacteriologia.hbm.xml"/>
+    <mapping resource="entities/Inmunologia.hbm.xml"/>
+    <mapping resource="entities/Doctores.hbm.xml"/>
+    <mapping resource="entities/Hematologia.hbm.xml"/>
+    <mapping resource="entities/OrinaMicroscopico.hbm.xml"/>
+    <mapping resource="entities/Quimica.hbm.xml"/>
+    <mapping resource="entities/Pacientes.hbm.xml"/>
+    <mapping resource="entities/Orina.hbm.xml"/>
     <mapping resource="entities/Heces.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

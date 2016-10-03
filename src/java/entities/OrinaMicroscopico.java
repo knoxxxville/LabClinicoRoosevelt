@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 
@@ -9,8 +9,8 @@ package entities;
 public class OrinaMicroscopico  implements java.io.Serializable {
 
 
-     private int idmicroscopico;
-     private Integer idorina;
+     private Integer idmicroscopico;
+     private Orina orina;
      private String leucocitarios;
      private String hematicos;
      private String granulosos;
@@ -23,18 +23,12 @@ public class OrinaMicroscopico  implements java.io.Serializable {
      private String bacterias;
      private String mucoides;
      private String cristales;
-     private Orina orina;
 
     public OrinaMicroscopico() {
     }
 
-	
-    public OrinaMicroscopico(int idmicroscopico) {
-        this.idmicroscopico = idmicroscopico;
-    }
-    public OrinaMicroscopico(int idmicroscopico, Integer idorina, String leucocitarios, String hematicos, String granulosos, String cereos, String epiteliales, String hialinos, String leucocitos, String hematies, String celepiteliales, String bacterias, String mucoides, String cristales, Orina orina) {
-       this.idmicroscopico = idmicroscopico;
-       this.idorina = idorina;
+    public OrinaMicroscopico(Orina orina, String leucocitarios, String hematicos, String granulosos, String cereos, String epiteliales, String hialinos, String leucocitos, String hematies, String celepiteliales, String bacterias, String mucoides, String cristales) {
+       this.orina = orina;
        this.leucocitarios = leucocitarios;
        this.hematicos = hematicos;
        this.granulosos = granulosos;
@@ -47,22 +41,21 @@ public class OrinaMicroscopico  implements java.io.Serializable {
        this.bacterias = bacterias;
        this.mucoides = mucoides;
        this.cristales = cristales;
-       this.orina = orina;
     }
    
-    public int getIdmicroscopico() {
+    public Integer getIdmicroscopico() {
         return this.idmicroscopico;
     }
     
-    public void setIdmicroscopico(int idmicroscopico) {
+    public void setIdmicroscopico(Integer idmicroscopico) {
         this.idmicroscopico = idmicroscopico;
     }
-    public Integer getIdorina() {
-        return this.idorina;
+    public Orina getOrina() {
+        return this.orina;
     }
     
-    public void setIdorina(Integer idorina) {
-        this.idorina = idorina;
+    public void setOrina(Orina orina) {
+        this.orina = orina;
     }
     public String getLeucocitarios() {
         return this.leucocitarios;
@@ -147,13 +140,6 @@ public class OrinaMicroscopico  implements java.io.Serializable {
     
     public void setCristales(String cristales) {
         this.cristales = cristales;
-    }
-    public Orina getOrina() {
-        return this.orina;
-    }
-    
-    public void setOrina(Orina orina) {
-        this.orina = orina;
     }
 
 

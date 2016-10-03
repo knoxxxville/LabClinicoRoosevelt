@@ -5,6 +5,7 @@
  */
 package ManageBeans;
 
+import DTO.BacteriologiaDTO;
 import entities.Bacteriologia;
 import entities.Doctores;
 import entities.LabHelper;
@@ -30,7 +31,7 @@ public class BactereologiaManagedBean {
     private Doctores doctor;
     private String strPaciente;
     private String strDoctor;
-    String[] parametros;
+
     private List<Bacteriologia> filteredBactereologias = new ArrayList<Bacteriologia>();
     LabHelper helper;
 
@@ -39,38 +40,39 @@ public class BactereologiaManagedBean {
         paciente = new Pacientes();
 
         helper = new LabHelper();
-        bactereologias = helper.getExamnesBactereologia();
+        
 
+    }
+    
+    public void cargarExamenes(){
+        bactereologias = helper.getExamnesBactereologia();
     }
 
     public void save() {
+        bac.setPacientes(helper.getPacienteObject(strPaciente));
+        bac.setDoctores(helper.getDoctorObject(strDoctor));
+        helper.save(bac);
 
-        //Se obtiene el id del paciente
-        parametros = strPaciente.split(":");
-        Pacientes p = new Pacientes();
-        p.setIdpaciente(Integer.parseInt(parametros[0].toString().trim()));
-        bac.setPacientes(p);
-
-        //Se obtiene el id del doctor
-        parametros = strDoctor.split(":");
-        Doctores d = new Doctores();
-        d.setIddoctor(Integer.parseInt(parametros[0].toString().trim()));
-        bac.setDoctores(d);
-
-        helper.saveExamenBactereologia(bac);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "El examen se registro exitosamente !"));
-        bac = new Bacteriologia();
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Operacion Exitosa !"));
+        this.limpiarFormulario();
+    }
+    public void imprimir(){
+        
     }
 
-    public List<String> completeTextPaciente(String query) {
+    public void limpiarFormulario() {
 
-        return helper.QueryPacientesByName(query.toUpperCase());
-
-    }
-
-    public List<String> completeTextDoctor(String query) {
-
-        return helper.QueryDoctoresByName(query.toUpperCase());
+        String limpiar = null;
+        strDoctor = limpiar;
+        strPaciente = limpiar;
+        bac.setFechaentrada(null);
+        bac.setFechasalida(null);
+        bac.setMuestra(limpiar);
+        bac.setObservaciones(limpiar);
+        bac.setRctobacteriano(limpiar);
+        bac.setResistentea(limpiar);
+        bac.setSeaisla(limpiar);
+        bac.setSensiablea(limpiar);
 
     }
 
@@ -82,7 +84,6 @@ public class BactereologiaManagedBean {
         this.strDoctor = strDoctor;
     }
 
-    
     public String getStrPaciente() {
         return strPaciente;
     }

@@ -1,5 +1,5 @@
 package entities;
-// Generated 01-sep-2015 14:16:40 by Hibernate Tools 3.6.0
+// Generated 07-sep-2015 20:24:23 by Hibernate Tools 3.6.0
 
 
 
@@ -9,8 +9,8 @@ package entities;
 public class OrinaFisicoQuimico  implements java.io.Serializable {
 
 
-     private int idfisicoquimico;
-     private Integer idorina;
+     private Integer idfisicoquimico;
+     private Orina orina;
      private String color;
      private String aspecto;
      private String densidad;
@@ -26,13 +26,8 @@ public class OrinaFisicoQuimico  implements java.io.Serializable {
     public OrinaFisicoQuimico() {
     }
 
-	
-    public OrinaFisicoQuimico(int idfisicoquimico) {
-        this.idfisicoquimico = idfisicoquimico;
-    }
-    public OrinaFisicoQuimico(int idfisicoquimico, Integer idorina, String color, String aspecto, String densidad, String ph, String nitritos, String proteinas, String glucos, String bilirrubina, String cetonas, String sangre, String urobilinogeno) {
-       this.idfisicoquimico = idfisicoquimico;
-       this.idorina = idorina;
+    public OrinaFisicoQuimico(Orina orina, String color, String aspecto, String densidad, String ph, String nitritos, String proteinas, String glucos, String bilirrubina, String cetonas, String sangre, String urobilinogeno) {
+       this.orina = orina;
        this.color = color;
        this.aspecto = aspecto;
        this.densidad = densidad;
@@ -46,19 +41,19 @@ public class OrinaFisicoQuimico  implements java.io.Serializable {
        this.urobilinogeno = urobilinogeno;
     }
    
-    public int getIdfisicoquimico() {
+    public Integer getIdfisicoquimico() {
         return this.idfisicoquimico;
     }
     
-    public void setIdfisicoquimico(int idfisicoquimico) {
+    public void setIdfisicoquimico(Integer idfisicoquimico) {
         this.idfisicoquimico = idfisicoquimico;
     }
-    public Integer getIdorina() {
-        return this.idorina;
+    public Orina getOrina() {
+        return this.orina;
     }
     
-    public void setIdorina(Integer idorina) {
-        this.idorina = idorina;
+    public void setOrina(Orina orina) {
+        this.orina = orina;
     }
     public String getColor() {
         return this.color;

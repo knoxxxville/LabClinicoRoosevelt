@@ -9,6 +9,7 @@ package ManageBeans;
 import entities.Doctores;
 import entities.LabHelper;
 import entities.Pacientes;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -54,6 +55,18 @@ public class ModulosMB {
         p.setEdad(edadPaciente);
         helper.savePacientes(p);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Operacion exitosa!"));
+    }
+    
+    public List<String> completeTextPaciente(String query) {
+
+        return helper.QueryPacientesByName(query.toUpperCase());
+
+    }
+
+    public List<String> completeTextDoctor(String query) {
+
+        return helper.QueryDoctoresByName(query.toUpperCase());
+
     }
     
     public Pacientes getP() {

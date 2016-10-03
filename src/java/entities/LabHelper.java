@@ -5,6 +5,7 @@
  */
 package entities;
 
+import DTO.BacteriologiaDTO;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -21,27 +22,29 @@ public class LabHelper {
     Session session = null;
     String selectDoctores = "from Doctores b";
     String selectPacientes = "from Pacientes b";
-    String selectBateriologia = "from Bacteriologia b order by b.idbacteriologia desc";
+    String selectBateriologia = "from Bacteriologia b join fetch b.pacientes join fetch b.doctores order by b.idbacteriologia desc";
 
     public LabHelper() {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
 
     public List<Bacteriologia> getExamnesBactereologia() {
-        List<Bacteriologia> examList = null;
+        List<Bacteriologia> lista = null;
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
             Query q = session.createQuery(selectBateriologia);
-            examList = (List<Bacteriologia>) q.list();
+            lista = (List<Bacteriologia>) q.list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return examList;
+        return lista;
     }
+    
+  
 
     public List<Pacientes> getPacientes() {
         List<Pacientes> lista = null;
@@ -111,12 +114,13 @@ public class LabHelper {
         return resultList;
     }
 
-    public void saveExamenBactereologia(Bacteriologia bac) {
+    public void savePacientes(Pacientes o) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(bac);
+            System.out.println("[LOG]Nombre:" + o.getNombre() + " Edad:" + o.getEdad());
+            session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");
         } catch (HibernateException e) {
@@ -127,12 +131,12 @@ public class LabHelper {
         }
     }
 
-    public void savePacientes(Pacientes o) {
+    public void save(Object o) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("[LOG]Nombre:"+o.getNombre()+" Edad:"+o.getEdad());
+
             session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");
@@ -149,7 +153,7 @@ public class LabHelper {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("[LOG]"+o.getNombre());
+            System.out.println("[LOG]" + o.getNombre());
             session.save(o);
             tx.commit();
             System.out.println("[LOG]Records inserted sucessessfully");
@@ -159,5 +163,25 @@ public class LabHelper {
         } finally {
             session.close();
         }
+    }
+
+    public Pacientes getPacienteObject(String strPaciente) {
+
+        //Se obtiene el id del paciente
+        String[] parametros;
+        parametros = strPaciente.split(":");
+        Pacientes p = new Pacientes();
+        p.setIdpaciente(Integer.parseInt(parametros[0].toString().trim()));
+
+        return p;
+    }
+
+    public Doctores getDoctorObject(String strDoctor) {
+        //Se obtiene el id del doctor
+        String[] parametros;
+        parametros = strDoctor.split(":");
+        Doctores d = new Doctores();
+        d.setIddoctor(Integer.parseInt(parametros[0].toString().trim()));
+        return d;
     }
 }

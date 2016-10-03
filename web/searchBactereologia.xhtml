@@ -2,32 +2,42 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
+                xmlns:p="http://primefaces.org/ui">
 
 
-                <h:form id="form">
-    </h:form>
-
-    <p:dataTable value="#{bactereologiaManagedBean.getBactereologias()}" var="bac" rows="10"
+    <h:form>
+        <p:commandButton update="tablebac" actionListener="#{bactereologiaManagedBean.cargarExamenes()}" value="Buscar" />
+        <p:dataTable id="tablebac" value="#{bactereologiaManagedBean.getBactereologias()}" var="bac" rows="15"
                  >
 
-        <p:column  headerText="Codigo">
-            <h:outputText value="#{bac.codigo}" />
+        <p:column  headerText="ID examen">
+            <h:outputText value="#{bac.idbacteriologia}" />
+        </p:column>
+             <p:column  headerText="Fecha Entrada"   >
+                 <h:outputText value="#{bac.fechaentrada}" />
+        </p:column>
+            
+             <p:column  headerText="Fecha Salida"   >
+                 <h:outputText value="#{bac.fechasalida}" />
+        </p:column>
+        <p:column  headerText="Doctor">
+            <h:outputText value="#{bac.doctores.nombre}" />
         </p:column>
 
         <p:column  headerText="Paciente"   >
-            <h:outputText value="#{bac.paciente}" />
+            <h:outputText value="#{bac.pacientes.nombre}" />
         </p:column>
+        <p:column  headerText="Paciente"   >
+            <p:commandButton actionListener="#{bactereologiaManagedBean.imprimir()}" value="Imprimir" />
+        </p:column>
+        
 
-        <p:column  headerText="Doctor">
-            <h:outputText value="#{bac.doctor}" />
-        </p:column>
-
-        <p:column  headerText="Edad">
-            <h:outputText value="#{bac.edad}" />
-        </p:column>
+       
     </p:dataTable>
 
+    </h:form>       
+
+   
 
 
 
